@@ -79,10 +79,23 @@ namespace SIMEDECON.Controllers
             // No cuenta los errores de inicio de sesión para el bloqueo de la cuenta
             // Para permitir que los errores de contraseña desencadenen el bloqueo de la cuenta, cambie a shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, shouldLockout: false);
+
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    //ApplicationUser usuario = await UserManager.FindAsync(model.Email, model.Password);
+                    // Redirect to User landing page on SignIn, according to Role
+                    if ((UserManager.IsInRole(user.Id, "Administrador")))
+                    {
+                        return RedirectToAction("ViewAdministrador", "Home");
+                    }
+                    if ((UserManager.IsInRole(user.Id, "Medico")))
+                    {
+                        return RedirectToAction("ViewMedico", "Home");
+                    }
+                    return View(model);
+                // etc below - code to taste
+                //return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:

@@ -6,14 +6,16 @@ using System.Web.Mvc;
 
 namespace SIMEDECON.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
-    {
-        public ActionResult Index()
+    {        
+        [Authorize(Roles ="Administrador")]
+        public ActionResult ViewAdministrador()
         {
             return View();
         }
-
-        public ActionResult About()
+        [Authorize(Roles = "Medico,Administrador")]
+        public ActionResult ViewMedico()
         {
             ViewBag.Message = "Your application description page.";
 

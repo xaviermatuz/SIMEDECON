@@ -37,7 +37,7 @@
                 <div class="login100-pic js-tilt" data-tilt>
                     <img src="~/Image/Logo.jpg" alt="IMG" />
                 </div>
-                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ResultUrl }, FormMethod.Post, new { role = "form" }))
                 {
                     @Html.AntiForgeryToken()
                     <span class="login100-form-title">
@@ -83,6 +83,7 @@
                 </div>
             </div>
         </div>
+    </div>
         <!--===============================================================================================-->
         @*<script src="~/Scripts/jquery-3.2.1.min.js"></script>*@
         @*<script src="~/Scripts/jquery-3.3.1.min.js"></script>*@
