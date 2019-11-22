@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
@@ -15,6 +16,7 @@ namespace SIMEDECON.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+     
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -72,14 +74,28 @@ namespace SIMEDECON.Controllers
             {
                 return View(model);
             }
+            var user = UserManager.FindByEmail(model.Email);
 
             // No cuenta los errores de inicio de sesión para el bloqueo de la cuenta
             // Para permitir que los errores de contraseña desencadenen el bloqueo de la cuenta, cambie a shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, shouldLockout: false);
+
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    //ApplicationUser usuario = await UserManager.FindAsync(model.Email, model.Password);
+                    // Redirect to User landing page on SignIn, according to Role
+                    if ((UserManager.IsInRole(user.Id, "Administrador")))
+                    {
+                        return RedirectToAction("ViewAdministrador", "Home");
+                    }
+                    if ((UserManager.IsInRole(user.Id, "Medico")))
+                    {
+                        return RedirectToAction("ViewMedico", "Home");
+                    }
+                    return View(model);
+                // etc below - code to taste
+                //return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -90,7 +106,6 @@ namespace SIMEDECON.Controllers
                     return View(model);
             }
         }
-
         //
         // GET: /Account/VerifyCode
         [AllowAnonymous]
@@ -142,7 +157,7 @@ namespace SIMEDECON.Controllers
             return View();
         }
 
-        //
+        //Aqui se encuentra lo del username 
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
@@ -151,7 +166,7 @@ namespace SIMEDECON.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -482,4 +497,5 @@ namespace SIMEDECON.Controllers
         }
         #endregion
     }
+
 }

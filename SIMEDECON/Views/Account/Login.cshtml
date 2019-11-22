@@ -1,63 +1,110 @@
 ﻿@using SIMEDECON.Models
 @model LoginViewModel
 @{
+    Layout = null;
     ViewBag.Title = "Iniciar sesión";
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
+    <!--===============================================================================================-->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!--===============================================================================================-->
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!--===============================================================================================-->
+    <link href="~/Content/select2.min.css" rel="stylesheet" type="text/css" />
+    <!--===============================================================================================-->
+    <link href="~/Content/util.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/main.css" rel="stylesheet" type="text/css" />
+    <!--===============================================================================================-->
+    <style>
+        .field-validation-error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="limiter">
 
-<h2>@ViewBag.Title.</h2>
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                <h4>Use una cuenta local para iniciar sesión.</h4>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                    </div>
+        <div class="container-login100">
+
+            <div class="wrap-login100">
+                <div class="login100-pic js-tilt" data-tilt>
+                    <img src="~/Image/Logo.jpg" alt="IMG" />
                 </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ResultUrl }, FormMethod.Post, new { role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <span class="login100-form-title">
+                        Login
+                    </span>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="wrap-input100 validate-input">
+                        @Html.TextBoxFor(model => model.Email, new { placeholder = "Correo", @class = "input100" })
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                     </div>
-                </div>
-                <div class="form-group">
+                    <div class="wrap-input100 validate-input">
+                        @Html.PasswordFor(model => model.Password, new { placeholder = "Contraseña", @class = "input100" })
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
                     <div class="col-md-offset-2 col-md-10">
                         <div class="checkbox">
                             @Html.CheckBoxFor(m => m.RememberMe)
                             @Html.LabelFor(m => m.RememberMe)
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Iniciar sesión" class="btn btn-default" />
+                    <div class="container-login100-form-btn">
+                        <input type="submit" name="name" value="Login" class="login100-form-btn" />
+                    </div>
+                }
+                <div class="copyright_part">
+                    <div class="container">
+                        <div class="col">
+                            <div class="copyright_text">
+                                <p>
+                                    <small> This template is made with by <a href="https://colorlib.com" target="_blank">Colorlib</a></small>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <p>
-                    @Html.ActionLink("Registrar como nuevo usuario", "Register")
-                </p>
-                @* Habilite esta opción después de habilitar la confirmación de la cuenta para la función de restablecimiento de contraseña
-                    <p>
-                        @Html.ActionLink("¿Ha olvidado su contraseña?", "ForgotPassword")
-                    </p>*@
-            }
-        </section>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-        </section>
-    </div>
-</div>
+        <!--===============================================================================================-->
+        @*<script src="~/Scripts/jquery-3.2.1.min.js"></script>*@
+        @*<script src="~/Scripts/jquery-3.3.1.min.js"></script>*@
+        <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+        <!--===============================================================================================-->
+        @*<script src="~/Scripts/popper.js"></script>*@
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="~/Scripts/select2.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="~/Scripts/tilt.jquery.min.js"></script>
+        @*<script src="~/Scripts/jquery.validate.min.js"></script>*@
+        @*<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
+        <script>
+            $('.js-tilt').tilt({
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+                scale: 1.1
+
+            })
+        </script>
+        <!--===============================================================================================-->
+        <script src="~/Scripts/main.js"></script>
+</body>
+</html> 
