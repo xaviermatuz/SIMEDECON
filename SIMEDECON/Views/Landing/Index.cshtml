@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
 <html lang="es" class="min-vh-100">
 <head>
     <meta charset="utf-8">
@@ -12,7 +13,7 @@
     <!-- FontAwesome core CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Estilos personalizados para la plantilla -->
-    <link href="~/Content/Estilo.css" rel="stylesheet" />        
+    <link href="~/Content/Estilo.css" rel="stylesheet" />
 </head>
 <body class="d-flex flex-column h-100">
 
@@ -25,11 +26,36 @@
                 SIMEDECON
             </a>
 
-            @Html.Partial("_LoginPartial")
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                @if (User.IsInRole("Administrador"))
+                {
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-item" href="@Url.Action("ViewAdministrador", "Home")">Ir a Menu</a>
+                        </li>
+                    </ul>
+                }
+                else if (User.IsInRole("Medico"))
+                {
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Editar <span class="sr-only">(current)</span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown01">
+                                <a class="dropdown-item" href="@Url.Action("ViewMedico", "Home")">Ir a Menu</a>
+                            </div>
+                        </li>
+                    </ul>
+                }
+
+                @Html.Partial("_LoginPartial")
+            </div>
         </nav>
     </header>
 
-    <main role="main" class="flex-shrink-0" style="padding-top: 2rem;">
+    <main role="main" class="flex-shrink-0" style="padding-top: 1.88rem;">
         <!--Carousel Wrapper-->
         <div id="video-carousel-example" class="carousel slide carousel-fade" data-ride="carousel">
             <!--Indicators-->
@@ -71,51 +97,51 @@
         </div>
         <!--Carousel Wrapper-->
         @*<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="10000">
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner" >
-                <div class="carousel-item active">
-                    <video id="video" width="100%" height="100%" muted autoplay="autoplay" loop="loop" preload="auto" data-interval="10000">
-                        <source src="~/Image/prueba.mp4" type="video/mp4" />
-                    </video>
-                </div>
-                <div class="carousel-item">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777" /></svg>
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>Another example headline.</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" >
+                    <div class="carousel-item active">
+                        <video id="video" width="100%" height="100%" muted autoplay="autoplay" loop="loop" preload="auto" data-interval="10000">
+                            <source src="~/Image/prueba.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <div class="carousel-item">
+                        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777" /></svg>
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1>Another example headline.</h1>
+                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777" /></svg>
+                        <div class="container">
+                            <div class="carousel-caption text-right">
+                                <h1>One more for good measure.</h1>
+                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777" /></svg>
-                    <div class="container">
-                        <div class="carousel-caption text-right">
-                            <h1>One more for good measure.</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>*@
+                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>*@
 
 
         <!-- Marketing messaging and featurettes
-    ================================================== -->
+        ================================================== -->
         <!-- Wrap the rest of the page in another container to center all the content. -->
 
         <div class="container marketing">
@@ -201,7 +227,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="~/Scripts/jquery-3.4.1.slim.min.js"></script>
     @*<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>*@
-    <script>window.jQuery || document.write('<script src="~/Scripts/jquery-3.4.1.slim.min.js"><\/script>')</script>    
+    <script>window.jQuery || document.write('<script src="~/Scripts/jquery-3.4.1.slim.min.js"><\/script>')</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     @Scripts.Render("~/bundles/jquery")

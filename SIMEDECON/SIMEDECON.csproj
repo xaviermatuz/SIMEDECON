@@ -220,6 +220,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Image\AdminLTELogo.png" />
+    <Content Include="Image\aqui esta.png" />
     <Content Include="Image\large2019.gif" />
     <Content Include="Image\Logo.jpg" />
     <Content Include="Image\no_image.png" />
