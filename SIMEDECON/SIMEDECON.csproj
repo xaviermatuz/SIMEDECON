@@ -223,6 +223,7 @@
     <Content Include="Image\large2019.gif" />
     <Content Include="Image\Logo.jpg" />
     <Content Include="Image\no_image.png" />
+    <Content Include="Image\prueba.mp4" />
     <Content Include="Image\user2-160x160.jpg" />
     <Content Include="Image\user3-128x128.jpg" />
     <Content Include="Scripts\adminlte.js" />
@@ -401,6 +402,10 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />

@@ -10,7 +10,7 @@
         @Html.ActionLink( User.Identity.GetUserName() + "" , "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
     </li>
     @*<li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>*@
-    <li><a class="btn btn-outline-danger my-2 btn-circle  waves-circle waves-float float-right" data-toggle="tooltip" title="Cerrar Sesion" style="display: block; margin: 0 auto;" href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out-alt"></i></a></li>
+    <li><a class="btn btn-outline-danger my-2 btn-circle  waves-circle waves-float float-right" data-toggle="tooltip" title="Cerrar sesión" style="display: block; margin: 0 auto;" href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión <i class="fa fa-sign-out-alt"></i></a></li>
 </ul>
     }
 }
@@ -19,6 +19,6 @@ else
     <ul class="nav navbar-nav ml-auto">
         @*<li>@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
         @*<li>@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>*@
-        <li><a class="btn btn-outline-success my-2 btn-circle  waves-circle waves-float float-right" data-toggle="tooltip" title="Iniciar Sesion" style="display: block; margin: 0 auto;" href="@Url.Action("Login", "Account")"><i class="fa fa-sign-in-alt"></i></a></li>        
+        <li><a class="btn btn-outline-success my-2 btn-circle  waves-circle waves-float float-right" data-toggle="tooltip" title="Iniciar sesión" style="display: block; margin: 0 auto;" href="@Url.Action("Login", "Account")">Iniciar sesión <i class="fa fa-sign-in-alt"></i></a></li>        
     </ul>
 }

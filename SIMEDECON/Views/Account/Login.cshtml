@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title>Iniciar Sesión</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -61,9 +61,9 @@
                         @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                     </div>
                     <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.RememberMe)
-                            @Html.LabelFor(m => m.RememberMe)
+                        <div class="checkbox custom-control custom-checkbox">
+                            @Html.CheckBoxFor(m => m.RememberMe, new { @class = "custom-control-input" })
+                            @Html.LabelFor(m => m.RememberMe, new { @class = "custom-control-label" })
                         </div>
                     </div>
                     <div class="container-login100-form-btn">
@@ -81,6 +81,7 @@
                         </div>
                     </div>
                 </div>
+                <p class="float-right"><a data-toggle="tooltip" title="Regresar a Inicio" href="@Url.Action("Index", "Landing")">No tengo cuenta <i class="fa fa-long-arrow-left"></i></a></p>
             </div>
         </div>
     </div>
