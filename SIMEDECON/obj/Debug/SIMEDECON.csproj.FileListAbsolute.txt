@@ -217,6 +217,7 @@ C:\Users\TIC_Xavi\Source\Repos\SIMEDECON\SIMEDECON\bin\Microsoft.CodeDom.Provide
 C:\Users\TIC_Xavi\Source\Repos\SIMEDECON\SIMEDECON\bin\Microsoft.Owin.xml
 C:\Users\TIC_Xavi\Source\Repos\SIMEDECON\SIMEDECON\bin\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\TIC_Xavi\Source\Repos\SIMEDECON\SIMEDECON\bin\Microsoft.Owin.Security.xml
+C:\Users\TIC_Xavi\Source\Repos\SIMEDECON\SIMEDECON\bin\Microsoft.Owin.Security.Cookies.xml
 C:\Users\TIC_Xavi\Source\Repos\SIMEDECON\SIMEDECON\bin\Microsoft.Owin.Security.Facebook.xml
 C:\Users\TIC_Xavi\Source\Repos\SIMEDECON\SIMEDECON\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\TIC_Xavi\Source\Repos\SIMEDECON\SIMEDECON\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
@@ -261,8 +262,8 @@ C:\Users\TIC_Xavi\Source\Repos\SIMEDECON\SIMEDECON\bin\es\EntityFramework.SqlSer
 C:\Users\TIC_Xavi\Source\Repos\SIMEDECON\SIMEDECON\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
 C:\Users\TIC_Xavi\Source\Repos\SIMEDECON\SIMEDECON\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
 C:\Users\TIC_Xavi\Source\Repos\SIMEDECON\SIMEDECON\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-C:\Users\TIC_Xavi\Source\Repos\SIMEDECON\SIMEDECON\obj\Debug\SIMEDECON.csprojAssemblyReference.cache
 C:\Users\TIC_Xavi\Source\Repos\SIMEDECON\SIMEDECON\obj\Debug\SIMEDECON.csproj.CoreCompileInputs.cache
 C:\Users\TIC_Xavi\Source\Repos\SIMEDECON\SIMEDECON\obj\Debug\SIMEDECON.csproj.CopyComplete
 C:\Users\TIC_Xavi\Source\Repos\SIMEDECON\SIMEDECON\obj\Debug\SIMEDECON.dll
 C:\Users\TIC_Xavi\Source\Repos\SIMEDECON\SIMEDECON\obj\Debug\SIMEDECON.pdb
+C:\Users\TIC_Xavi\Source\Repos\SIMEDECON\SIMEDECON\obj\Debug\SIMEDECON.csprojAssemblyReference.cache
