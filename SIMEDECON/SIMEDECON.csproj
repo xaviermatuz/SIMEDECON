@@ -207,7 +207,6 @@
     <Content Include="Content\Estilo.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\icheck-bootstrap.min.css" />
-    <Content Include="Content\jqvmap.min.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\OverlayScrollbars.min.css" />
     <Content Include="Content\select2.min.css" />
@@ -397,8 +396,6 @@
     <Content Include="Scripts\jquery.knob.min.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\jquery.overlayScrollbars.min.js" />
-    <Content Include="Scripts\jquery.vmap.min.js" />
-    <Content Include="Scripts\jquery.vmap.world.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\sparkline.js" />
     <Content Include="Scripts\summernote-bs4.min.js" />

@@ -55,7 +55,7 @@
         </nav>
     </header>
 
-    <main role="main" class="flex-shrink-0">
+    <main role="main" class="flex-shrink-0" style="margin-top:0.35625rem">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -67,26 +67,26 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-                <div class="carousel-item  active">
-                    <video width=""  autoplay>
+                <div class="carousel-item one  active">
+                    <video class="video-background" autoplay>
                         <source src="~/Videos/comite olimpico nicaraguense promo 2.mov" type="video/mp4" />
                     </video>
                 </div>
 
-                <div class="carousel-item">
-                    <video >
+                <div class="carousel-item one">
+                    <video class="video-background" id="mivideo">
                         <source src="~/Videos/barberena 2.mov" type="video/mp4" />
                     </video>
                 </div>
 
-                <div class="carousel-item">
-                    <video >
+                <div class="carousel-item one">
+                    <video class="video-background">
                         <source src="~/Videos/app phone.mp4" type="video/mp4" />
                     </video>
                 </div>
 
-                <div class="carousel-item">
-                    <video >
+                <div class="carousel-item one">
+                    <video class="video-background">
                         <source src="~/Videos/redes sociales con.mov" type="video/mp4" />
                     </video>
                 </div>
@@ -163,6 +163,38 @@
                 if (elemento.prop("tagName") == "VIDEO") {
                     elemento.get(0).play();
                 }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            document.getElementById("mivideo").Height = (document.getElementById("mivideo").videoHeight * 50);
+        });
+        function scaleToFill() {
+            $('video.video-background').each(function (index, videoTag) {
+                var $video = $(videoTag),
+                    videoRatio = videoTag.videoWidth / videoTag.videoHeight,
+                    tagRatio = $video.width() / $video.height(),
+                    val;
+
+                if (videoRatio < tagRatio) {
+                    val = tagRatio / videoRatio * 1.02;
+                 } else if (tagRatio < videoRatio) {
+                    val = videoRatio / tagRatio * 1.02;
+                }
+
+                $video.css('transform', 'scale(' + val + ',' + val + ')');
+
+            });
+        }
+
+        $(function () {
+            scaleToFill();
+
+            $('.video-background').on('loadeddata', scaleToFill);
+
+            $(window).resize(function () {
+                scaleToFill();
             });
         });
     </script>
