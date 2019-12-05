@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity
+@using MvcSiteMapProvider.Web.Html
 @using SIMEDECON.Metodos
 <!DOCTYPE html>
 <html lang="es">
@@ -136,6 +137,29 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="nav-item has-treeview @Html.ActivePage("HistorialMedico", "Crear")">
+                            <a href="#" class="nav-link ">
+                                <i class="nav-icon fas fa-window-restore"></i>
+                                <p>
+                                    Examenes
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Crear", "HistorialMedico")" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Historial Medico</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("", "")" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Examen Fisico</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="nav-item">
                             <a href="pages/widgets.html" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
@@ -159,12 +183,11 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Dashboard</h1>
+                            <h1 class="m-0 text-dark">@Html.MvcSiteMap().SiteMapTitle()</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard v1</li>
+                                @Html.MvcSiteMap().SiteMapPath()
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -173,9 +196,7 @@
             <!-- /.content-header -->
             <!-- Main content -->
             <section class="content">
-                <div class="container-fluid">
-                    @RenderBody()
-                </div><!-- /.container-fluid -->
+                @RenderBody()
             </section>
             <!-- /.content -->
         </div>
