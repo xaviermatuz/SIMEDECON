@@ -41,6 +41,15 @@ namespace SIMEDECON.Models
 
     public class ChangePasswordViewModel
     {
+        
+        public string ID { get; set; }
+        [Required]
+        [Display(Name = "Usuario")]
+        public string UserName { get; set; }
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Correo")]
+        public string Email { get; set; }
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña actual")]

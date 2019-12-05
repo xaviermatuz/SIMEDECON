@@ -87,6 +87,8 @@
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -189,8 +191,147 @@
     <Compile Include="Metodos\HtmlHelperExtensions.cs" />
     <Compile Include="Metodos\HtmlUtility.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Alergia.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Anexo.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Aparato_Locomotor.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Apoyo_Economico.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Atleta_Categoria.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Carrera_Deportiva.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Carrera_Deportiva_Evento.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Carrera_Deportiva_Familiar.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Categoria.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Condiciones_Clinicas_Actuales.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Condiciones_Clinicas_Actuales_Principal.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Consiste_Apoyo.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Datos_Atleta.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Departamento.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Deporte.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Educacion.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Evento.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Examene.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Examen_Fisico.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Examen_Fisico_Principal.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ficha_Antropometrica.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Habitacion.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Habito.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Historial_Medico.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Historia_Familiar.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Hospital.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Informacion_Familiar.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Lesione.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Medicamento.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Medico.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MeSys.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MeSys.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MeSys.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MeSys.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MeSys.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Municipio.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Notas_Evaluacion.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Situacion_Laboral.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserEdit.cs" />
+    <Compile Include="Models\Usuario.cs">
+      <DependentUpon>MeSys.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -203,6 +344,8 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Datatables\dataTables.bootstrap4.css" />
+    <Content Include="Content\Datatables\dataTables.bootstrap4.min.css" />
     <Content Include="Content\daterangepicker.css" />
     <Content Include="Content\Estilo.css" />
     <Content Include="Content\font-awesome.min.css" />
@@ -226,6 +369,16 @@
     <Content Include="Image\no_image.png" />
     <Content Include="Image\user2-160x160.jpg" />
     <Content Include="Image\user3-128x128.jpg" />
+    <Content Include="Models\MeSys.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MeSys.edmx</DependentUpon>
+      <LastGenOutput>MeSys.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\MeSys.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MeSys.edmx</DependentUpon>
+      <LastGenOutput>MeSys.cs</LastGenOutput>
+    </Content>
     <Content Include="Perfiles\AlbertoAlberto mendieta.JPG" />
     <Content Include="Perfiles\AlisonAlisson Ortega.JPG" />
     <Content Include="Perfiles\alysAlys Cruz.JPG" />
@@ -342,6 +495,7 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\dashboard.js" />
+    <Content Include="Scripts\Datatablesjs\dataTables.bootstrap4.js" />
     <Content Include="Scripts\daterangepicker.js" />
     <Content Include="Scripts\demo.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
@@ -394,6 +548,8 @@
     <Content Include="fonts\poppins\Poppins-Thin.ttf" />
     <Content Include="fonts\poppins\Poppins-ThinItalic.ttf" />
     <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.dataTables.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery.knob.min.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\jquery.overlayScrollbars.min.js" />
@@ -410,6 +566,13 @@
     <Content Include="webfonts\fa-brands-400.svg" />
     <Content Include="webfonts\fa-regular-400.svg" />
     <Content Include="webfonts\fa-solid-900.svg" />
+    <EntityDeploy Include="Models\MeSys.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MeSys.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\MeSys.edmx.diagram">
+      <DependentUpon>MeSys.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -487,6 +650,7 @@
     <Content Include="webfonts\fa-solid-900.woff2" />
     <Content Include="Views\Home\ViewAdministrador.cshtml" />
     <Content Include="Views\Home\ViewMedico.cshtml" />
+    <Content Include="Views\Manage\EditUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -498,6 +662,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

@@ -1,10 +1,12 @@
 /*Principal */
 html {
-    box-shadow: inset 0 0 2.5rem rgba(0, 0, 0, .5);    
+    box-shadow: inset 0 0 2.5rem rgba(0, 0, 0, .5);
 }
+
 main > .container {
     padding: 3.75rem 0.9375rem 0;
 }
+
 body {
     padding-top: 2.42rem;
     padding-bottom: 2rem;
@@ -15,9 +17,11 @@ body {
 .dropdown-menu {
     background-color: #343a40 !important;
 }
+
 .dropdown-item {
     color: #FFFFFF !important;
 }
+
     .dropdown-item:hover {
         color: #000 !important;
     }
@@ -26,21 +30,25 @@ body {
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
     background-color: #3F51B5;
 }
-    .custom-control-input:checked ~ .custom-control-label::before {
+
+.custom-control-input:checked ~ .custom-control-label::before {
     color: #fff;
     background-color: #3F51B5;
-    }
+}
 
 /*  Placeholder  */
 ::-webkit-input-placeholder {
     text-align: center;
 }
+
 :-moz-placeholder { /* Firefox 18- */
     text-align: center;
 }
+
 ::-moz-placeholder { /* Firefox 19+ */
     text-align: center;
 }
+
 :-ms-input-placeholder {
     text-align: center;
 }
@@ -49,27 +57,34 @@ body {
 .el-element-overlay .white-box {
     padding: 0rem;
 }
+
 .el-element-overlay .el-card-item {
     position: relative;
     padding-bottom: 1.5625rem;
     background-color: #333;
     color: #e6e6e6;
 }
+
     .el-element-overlay .el-card-item .el-card-avatar {
         margin-bottom: 15px;
     }
+
     .el-element-overlay .el-card-item .el-card-content {
         text-align: center;
     }
+
         .el-element-overlay .el-card-item .el-card-content h3 {
             margin: 0px;
         }
+
         .el-element-overlay .el-card-item .el-card-content a {
             color: #747d8a;
         }
+
             .el-element-overlay .el-card-item .el-card-content a:hover {
                 color: #009efb;
             }
+
     .el-element-overlay .el-card-item .el-overlay-1 {
         width: 100%;
         height: 100%;
@@ -78,6 +93,7 @@ body {
         text-align: center;
         cursor: default;
     }
+
         .el-element-overlay .el-card-item .el-overlay-1 img {
             display: block;
             position: relative;
@@ -87,11 +103,13 @@ body {
             width: 100%;
             height: auto;
         }
+
         .el-element-overlay .el-card-item .el-overlay-1:hover img {
             -ms-transform: scale(1.2) translateZ(0);
             -webkit-transform: scale(1.2) translateZ(0);
             /* transform: scale(1.2) translateZ(0); */
         }
+
         .el-element-overlay .el-card-item .el-overlay-1 .el-info {
             text-decoration: none;
             display: inline-block;
@@ -112,20 +130,24 @@ body {
             -webkit-transform: translateY(-50%) translateZ(0);
             -ms-transform: translateY(-50%) translateZ(0);
         }
+
             .el-element-overlay .el-card-item .el-overlay-1 .el-info > li {
                 list-style: none;
                 display: inline-block;
                 margin: 0 3px;
             }
+
                 .el-element-overlay .el-card-item .el-overlay-1 .el-info > li a {
                     border-color: #ffffff;
                     color: #ffffff;
                     padding: 12px 15px 10px;
                 }
+
                     .el-element-overlay .el-card-item .el-overlay-1 .el-info > li a:hover {
                         background: #009efb;
                         border-color: #009efb;
                     }
+
     .el-element-overlay .el-card-item .el-overlay {
         width: 100%;
         height: 100%;
@@ -139,6 +161,7 @@ body {
         -o-transition: all .4s ease-in-out;
         transition: all .4s ease-in-out;
     }
+
     .el-element-overlay .el-card-item .el-overlay-1:hover .el-overlay {
         opacity: 1;
         filter: alpha(opacity=100);
@@ -146,16 +169,20 @@ body {
         -ms-transform: translateZ(0);
         transform: translateZ(0);
     }
+
     .el-element-overlay .el-card-item .el-overlay-1 .scrl-dwn {
         top: -100%;
     }
+
     .el-element-overlay .el-card-item .el-overlay-1 .scrl-up {
         top: 100%;
         height: 0px;
     }
+
     .el-element-overlay .el-card-item .el-overlay-1:hover .scrl-dwn {
         top: 0px;
     }
+
     .el-element-overlay .el-card-item .el-overlay-1:hover .scrl-up {
         top: 0px;
         height: 100%;
@@ -173,6 +200,7 @@ body {
     overflow: hidden;
     position: fixed;
 }
+
     .legal .copyright {
         font-size: 13px;
         white-space: nowrap;
@@ -181,10 +209,12 @@ body {
         text-overflow: ellipsis;
         overflow: hidden;
     }
+
         .legal .copyright a {
             font-weight: bold;
             text-decoration: none;
         }
+
     .legal .version {
         white-space: nowrap;
         -ms-text-overflow: ellipsis;
@@ -214,16 +244,19 @@ body {
     #quebrar {
         width: 100% !important;
     }
+
     .listar-usuario {
         margin-bottom: 0.625rem;
         padding-bottom: 3.75rem;
     }
+
     .col-6 {
         position: relative;
         flex: 0 0 100%;
         max-width: 100%;
         margin-left: 0.25rem;
     }
+
     .col-5 {
         position: relative;
         flex: 0 0 100%;
@@ -233,9 +266,11 @@ body {
         border-radius: 0.625rem;
         border: 0.0625rem solid #666666;
     }
+
     .alergias {
         margin-left: 1.09rem;
     }
+
     .field-alergia {
         padding-bottom: 0.50rem;
         padding-right: 0.50rem;
@@ -259,10 +294,12 @@ body {
         margin-bottom: 0.625rem;
         padding-bottom: 3.75rem;
     }
+
     .col-5 {
         margin-left: 0.25rem;
         padding-right: 0.25rem;
     }
+
     .alergias {
         margin-left: 5.625rem;
     }
@@ -277,9 +314,10 @@ body {
 /*Para Portatiles y tablet landscape*/
 @media only screen and (min-width: 1024px) {
     .listar-usuario {
-        padding-top:0.625rem;
-        margin-bottom:0.625rem;
+        padding-top: 0.625rem;
+        margin-bottom: 0.625rem;
     }
+
     .card-alergia, .card-pregunta, .card-carrera-deportiva, .card-info-laboral-economica, .card-informacion-extra {
         position: relative;
         display: -ms-flexbox;
@@ -291,6 +329,7 @@ body {
         background-color: #fff;
         background-clip: border-box;
     }
+
     .field-alergia {
         padding-bottom: 0.50rem;
         padding-right: 0.50rem;
@@ -298,45 +337,54 @@ body {
         border-radius: 0.625rem;
         border: 0.325rem solid #666666;
     }
+
     .body-alergias, .body-preguntas, .body-carrera-deportiva, .body-info-laboral-economica, .body-informacion-extra {
     }
+
     .div-alergias {
         text-align: left;
     }
+
     .check-alergia {
         padding-left: 2.30rem;
     }
+
     .field-pregunta {
         padding-bottom: 0.625rem;
         border-width: 0.625rem;
         border-radius: 0.625rem;
         border: 0.325rem solid #666666;
     }
+
     .preguntas {
         padding: 0.625rem 0.625rem 0rem 1.25rem;
     }
+
     .subpreguntas {
         padding: 0.625rem 0.625rem 0.625rem 1.875rem;
     }
-    .radio-preguntas{
-        padding-top:0.75rem;
+
+    .radio-preguntas {
+        padding-top: 0.75rem;
     }
+
     .carrera-deportiva {
         margin-left: 5.625rem;
     }
+
     .field-carera-deportiva {
         padding-bottom: 0.625rem;
         border-width: 0.625rem;
         border-radius: 0.625rem;
         border: 0.325rem solid #666666;
     }
+
     .col-5 {
         margin-left: 2.30rem;
         border-width: 0.625rem;
         border-radius: 0.625rem;
         border: 0.0625rem solid #666666;
     }
-
 }
 
 /*
@@ -347,22 +395,22 @@ hacer mediaquery para ipad en vertical y componer absolutamente todos los demas 
 
 /* Carousel base class */
 .carousel {
-    margin-bottom: 0.125rem;    
+    margin-bottom: 0.125rem;
     padding-top: 1.625rem;
 }
 
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
-    height: 42.825rem;    
+    height: 52.825rem;
 }
 
-   video {
-        position: absolute;
-        top: 0;
-        left: 0;        
-        height: 42.825rem;
-    }
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 52.825rem;
+}
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
@@ -387,7 +435,11 @@ hacer mediaquery para ipad en vertical y componer absolutamente todos los demas 
 ------------------------- */
 
 .featurette-divider {
-    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+    margin: 5rem 0; /* Space out the Bootstrap 
+
+---
+
+ more */
 }
 
 /* Thin out the marketing headings */

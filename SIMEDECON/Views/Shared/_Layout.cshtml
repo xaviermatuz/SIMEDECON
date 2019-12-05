@@ -17,8 +17,8 @@
     <link href="~/Content/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
     <!-- iCheck -->
     <link href="~/Content/icheck-bootstrap.min.css" rel="stylesheet" />
-    <!-- JQVMap -->
-    <link href="~/Content/jqvmap.min.css" rel="stylesheet" />
+    <!-- DataTables -->
+    <link href="~/Content/Datatables/dataTables.bootstrap4.css" rel="stylesheet" />
     <!-- Theme style -->
     <link href="~/Content/adminlte.min.css" rel="stylesheet" />
     <!-- overlayScrollbars -->
@@ -29,6 +29,7 @@
     <link href="~/Content/summernote-bs4.css" rel="stylesheet" />
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    @RenderSection("UsuarioCss", required: false)
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -105,7 +106,7 @@
             {
                 <!-- Brand Logo -->
                 <a href="@Url.Action("ViewAdministrador", "Home")" class="brand-link">
-                    <img src="~/Image/aqui esta.png" alt="AdminLTE Logo"  class="brand-image img-circle elevation-3"
+                    <img src="~/Image/aqui esta.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                          style="opacity: .8;background-color:#ffffff">
                     <span class="brand-text font-weight-light">SIMEDECON</span>
                 </a>
@@ -126,7 +127,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                with font-awesome or any other icon font library -->
+                        with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview menu-open">
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -387,9 +388,9 @@
             <!-- /.content-header -->
             <!-- Main content -->
             <section class="content">
-                <div class="container-fluid">
-                    @RenderBody()
-                </div><!-- /.container-fluid -->
+                @*<div class="container-fluid">*@
+                @RenderBody()
+                <!--  </div>/.container-fluid -->
             </section>
             <!-- /.content -->
         </div>
@@ -423,9 +424,9 @@
     <script src="~/Scripts/Chart.min.js"></script>
     <!-- Sparkline -->
     <script src="~/Scripts/sparkline.js"></script>
-    <!-- JQVMap -->
-    <script src="~/Scripts/jquery.vmap.world.js"></script>
-    <script src="~/Scripts/jquery.vmap.min.js"></script>
+    <!-- DataTables -->
+    <script src="~/Scripts/jquery.dataTables.js"></script>
+    <script src="~/Scripts/Datatablesjs/dataTables.bootstrap4.js"></script>
     <!-- jQuery Knob Chart -->
     <script src="~/Scripts/jquery.knob.min.js"></script>
     <!-- daterangepicker -->
@@ -443,5 +444,6 @@
     <script src="~/Scripts/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="~/Scripts/demo.js"></script>
+    @RenderSection("UsuarioScript", required: false)
 </body>
 </html>

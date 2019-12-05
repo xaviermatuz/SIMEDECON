@@ -13,6 +13,8 @@ namespace SIMEDECON.Controllers
     [Authorize]
     public class ManageController : Controller
     {
+        public MeSysEntities db = new MeSysEntities();
+        private ApplicationDbContext context = new ApplicationDbContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -212,7 +214,57 @@ namespace SIMEDECON.Controllers
             }
             return RedirectToAction("Index", new { Message = ManageMessageId.RemovePhoneSuccess });
         }
+        //borrar si no funciona
+        //editar usuarios
+        [HttpGet]
+        public ActionResult EditUser(string ID)
+        {
+            ApplicationUser appUser = new ApplicationUser();
+            // appUser = UserManager.FindByIdAsync(ID);
+            var user = context.Users.Where(u => u.Id == ID).FirstOrDefault();
+            ChangePasswordViewModel User = new ChangePasswordViewModel();
+            User.UserName = user.UserName;
+            User.Email = user.Email;
+            return View( User);
+        }
+        [HttpPost]
+        public async Task<ActionResult> EditUser(ChangePasswordViewModel model)
+        {
 
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var context = new Models.ApplicationDbContext();
+            var user = context.Users.Where(u => u.Id == model.ID).FirstOrDefault();
+            //context.Entry(appuser).State = EntityState.Modified;
+            user.Email = model.Email;
+            user.UserName = model.UserName;
+           // user.PasswordHash = model.NewPassword;
+            context.SaveChanges();
+            var result = await UserManager.ChangePasswordAsync(model.ID, model.OldPassword, model.NewPassword);
+            if (result.Succeeded)
+            {
+                var BT = await UserManager.FindByIdAsync(model.ID);
+                if (BT != null)
+                {
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                }
+                return Redirect("~/Home/ViewAdministrador");
+                /*
+                 * 
+                 * redireccionar si esta correcto
+                 */
+            }
+            AddErrors(result);
+            //var user = context.Users.Where(u => u.Id == id.ToString()).FirstOrDefault();
+            /*
+             *redireccionar si esta mal
+             *
+             */
+            return Redirect("~/");
+
+        }
         //
         // GET: /Manage/ChangePassword
         public ActionResult ChangePassword()
@@ -231,7 +283,8 @@ namespace SIMEDECON.Controllers
                 return View(model);
             }
             var result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
-            if (result.Succeeded)
+            bool ban= CambioEmailUserName(model);
+            if (result.Succeeded && ban)
             {
                 var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
                 if (user != null)
@@ -243,7 +296,27 @@ namespace SIMEDECON.Controllers
             AddErrors(result);
             return View(model);
         }
-
+        //
+        //cambiar correo y contraseña
+        public bool CambioEmailUserName(ChangePasswordViewModel model)
+        {
+            bool bandera = false;
+            var l = User.Identity.GetUserId();
+            AspNetUser user = db.AspNetUsers.FirstOrDefault(s => s.Id == User.Identity.GetUserId().ToString());
+            user.Email = model.Email;
+            user.UserName = model.UserName;
+            db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+            if (db.SaveChanges() > 0)
+            {
+                bandera = true;
+            }
+            else
+            {
+                bandera = false;
+            }
+            return bandera;
+        }
         //
         // GET: /Manage/SetPassword
         public ActionResult SetPassword()

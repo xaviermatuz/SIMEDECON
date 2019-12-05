@@ -1,8 +1,75 @@
-﻿
+﻿@using SIMEDECON.Models
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "ViewAdministrador";
+    IEnumerable<AspNetUser> Usuarios = (IEnumerable<AspNetUser>)ViewBag.Usuario;
+    var variable = 1;
 }
+@section UsuarioCss{
 
-<h2>ViewAdministrador</h2>
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Lista de Usuarios</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover" >
+                    <thead align="center">
+                        <tr>
+                            <th>#</th>
+                            <th>Usuario</th>
+                            <th>Correo</th>
+                             <th>Contraseña</th>
+                            <th>Acciones</th>
 
+                        </tr>
+                    </thead>
+                    <tbody align="center">
+                        @foreach (var oElemento in Usuarios)
+                        {
+                            <tr>
+                                <td>@variable</td>
+                                <td>@oElemento.UserName</td>
+                                <td>@oElemento.Email</td>
+                                <td align="center" >********</td>
+                                <td>
+                                    <a href="@Url.Action("EditUser","Manage", new { ID = oElemento.Id })" class="btn bg-orange btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip" title="Editar Usuario">
+                                        <i style="color:white;" class="fa fa-pencil-alt"></i>
+                                    </a>
+                                    <a href="~/HomeAdmin/Eliminar/#" class="btn bg-red btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip" title="Eliminar Usuario">
+                                        <i style="color:white;" class="fas fa-user-minus"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            variable++;
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.col -->
+</div>
+
+@section UsuarioScript{
+    <script>
+        $(function () {
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+            });
+        });
+    </script>
+    <!-- AdminLTE App -->
+    @*<script src="../../dist/js/adminlte.min.js"></script> *@
+}
