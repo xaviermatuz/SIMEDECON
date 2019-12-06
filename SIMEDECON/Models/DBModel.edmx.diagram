@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8e82ad740c6c4ffbbb3ceaa6e17cad18" Name="Diagram1">
+        <EntityTypeShape EntityType="MeSysModel.Alergia" Width="1.5" PointX="7.5" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Anexo" Width="1.5" PointX="7.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Aparato_Locomotor" Width="1.5" PointX="7.5" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Apoyo_Economico" Width="1.5" PointX="7.5" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Atleta_Categoria" Width="1.5" PointX="10.5" PointY="40.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Carrera_Deportiva" Width="1.5" PointX="7.5" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Carrera_Deportiva_Evento" Width="1.5" PointX="7.5" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Carrera_Deportiva_Familiar" Width="1.5" PointX="7.5" PointY="34" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Categoria" Width="1.5" PointX="8.25" PointY="48.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Condiciones_Clinicas_Actuales" Width="1.5" PointX="8.25" PointY="37.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Condiciones_Clinicas_Actuales_Principal" Width="1.5" PointX="10.5" PointY="36" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Consiste_Apoyo" Width="1.5" PointX="7.5" PointY="41.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Datos_Atleta" Width="1.5" PointX="5.25" PointY="36.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Departamento" Width="1.5" PointX="0.75" PointY="40.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Deporte" Width="1.5" PointX="6" PointY="48.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Educacion" Width="1.5" PointX="7.5" PointY="44.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Evento" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Examen_Fisico" Width="1.5" PointX="8.25" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Examen_Fisico_Principal" Width="1.5" PointX="10.5" PointY="44" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Examene" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Ficha_Antropometrica" Width="1.5" PointX="7.5" PointY="51.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Habitacion" Width="1.5" PointX="7.5" PointY="57.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Habito" Width="1.5" PointX="7.5" PointY="60.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Historia_Familiar" Width="1.5" PointX="7.5" PointY="64.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Historial_Medico" Width="1.5" PointX="7.5" PointY="67.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Hospital" Width="1.5" PointX="3" PointY="37.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Informacion_Familiar" Width="1.5" PointX="7.5" PointY="70.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Lesione" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Medicamento" Width="1.5" PointX="7.5" PointY="74.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Medico" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Municipio" Width="1.5" PointX="3" PointY="40.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Notas_Evaluacion" Width="1.5" PointX="7.5" PointY="77.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Role" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeSysModel.Situacion_Laboral" Width="1.5" PointX="7.5" PointY="81.25" IsExpanded="true" />
+        <AssociationConnector Association="MeSysModel.FK_Alergias_Datos_Atleta" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Anexos_Datos_Atleta" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Aparato_Locomotor_Datos_Atleta" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Apoyo_Economico_Datos_Atleta" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Atleta_Categoria_Categorias" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Atleta_Categoria_Datos_Atleta" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Carrera_Deportiva_Datos_Atleta" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Carrera_Deportiva_Evento_Datos_Atleta" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Carrera_Deportiva_Familiar_Datos_Atleta" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Categorias_Deporte" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Condiciones_Clinicas_Actuales_Principal_Condiciones_Clinicas_Actuales" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Condiciones_Clinicas_Actuales_Principal_Datos_Atleta" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Consiste_Apoyo_Datos_Atleta" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Datos_Atleta_Hospital" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Datos_Atleta_Municipio" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Educacion_Datos_Atleta" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Examen_Fisico_Principal_Datos_Atleta" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Ficha_Antropometrica_Datos_Atleta" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Habitacion_Datos_Atleta" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Habitos_Datos_Atleta" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Historia_Familiar_Datos_Atleta" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Historial_Medico_Datos_Atleta" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Informacion_Familiar_Datos_Atleta" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Medicamentos_Datos_Atleta" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Notas_Evaluacion_Datos_Atleta" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Situacion_Laboral_Datos_Atleta" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Municipio_Departamentos" ManuallyRouted="false" />
+        <AssociationConnector Association="MeSysModel.FK_Examen_Fisico_Principal_Examen_Fisico" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

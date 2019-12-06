@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace SistemaMedico.Helper
+namespace SIMEDECON.Metodos
 {
     public static class HtmlHelperExtensions
     {
