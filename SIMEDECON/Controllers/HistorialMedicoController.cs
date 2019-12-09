@@ -20,8 +20,15 @@ namespace SIMEDECON.Controllers
             ViewBag.Nombre = model.Nombre_Completo;
             return model;
         }
-        public ActionResult Crear()
+        public ActionResult Crear(int ID)
         {
+            var nom = db.Datos_Atleta.Find(ID);
+            ViewBag.id = ID;
+            ViewBag.nombre = nom.Nombre_Completo;
+            IEnumerable<Carrera_Deportiva_Evento> cde = db.Carrera_Deportiva_Evento.Where(s => s.ID_Atleta == ID).ToList();
+            ViewBag.cdetabla = cde;
+            IEnumerable<Carrera_Deportiva_Familiar> cdf = db.Carrera_Deportiva_Familiar.Where(s => s.ID_Atleta == ID).ToList();
+            ViewBag.cdftabla = cdf;            
             return View();
         }
 
