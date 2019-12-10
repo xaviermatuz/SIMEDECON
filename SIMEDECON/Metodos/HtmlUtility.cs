@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
 
-namespace SistemaMedico.Views.Shared
+namespace SIMEDECON.Views.Shared
 {
     public static class HtmlUtility
     {
