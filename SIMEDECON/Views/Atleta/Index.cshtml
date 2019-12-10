@@ -1,0 +1,45 @@
+﻿@using SIMEDECON.Models
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Listar Atletas";
+    IEnumerable<Datos_Atleta> Atle = (IEnumerable<Datos_Atleta>)ViewBag.Atleta;
+
+}
+
+@section Listar_Atletas_Css
+{
+<link href="~/Content/CardAtletas.css" rel="stylesheet" />
+}
+
+<div class="container-fluid">
+    <div class="row el-element-overlay">
+        <div class="col-md-12">
+        </div>
+        @foreach (Datos_Atleta oElemento in Atle)
+        {
+            <div class="col-lg-3 col-md-6">
+                <div class="cardnigga">
+                    <div class="el-card-item">
+                        <div class="el-card-avatar el-overlay-1">
+                            <img src="~/@oElemento.Foto" alt="user" />
+                            <div class="el-overlay scrl-dwn">
+                                <ul class="el-info">
+                                    <li><a class="btn default btn-outline image-popup-vertical-fit" href="~/HistorialMedico/Crear/@oElemento.ID"><i class="icon-question"></i></a></li>
+                                    <li><a class="btn default btn-outline image-popup-vertical-fit" href="~/HistorialMedico/Actualizar/@oElemento.ID"><i class="icon-eye"></i></a></li>
+                                    <li><a class="btn default btn-outline image-popup-vertical-fit" href="~/ExamenFisico/Crear/@oElemento.ID"><i class="mdi mdi-run"></i></a></li>
+                                    <li><a class="btn default btn-outline image-popup-vertical-fit" href="~/Lesiones/Index/@oElemento.ID"><i class="material-icons">accessible_forward</i></a></li>                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="el-card-content">
+                            <h4 class="box-title">@oElemento.Nombre_Completo</h4>
+                            <h5>@oElemento.Correo_Electronico</h5>
+                            <h5>Deporte</h5>      
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

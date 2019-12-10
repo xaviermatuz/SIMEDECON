@@ -3,8 +3,11 @@
             xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
             xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
 
-  <mvcSiteMapNode title="Dashboard" controller="Home" action="ViewAdministrador" >
-    <mvcSiteMapNode title="Crear" controller="HistorialMedico" action="Crear"/>    
+  <mvcSiteMapNode title="Dashboard" controller="Home" action="ViewAdministrador" key="Home" visibility="!*">    
+      <mvcSiteMapNode title="Listar Atletas" controller="Atleta" action="Index">
+        <mvcSiteMapNode title="Crear Historial Medico" controller="HistorialMedico" action="Crear" preservedRouteParameters="id">          
+        </mvcSiteMapNode>
+      </mvcSiteMapNode>
   </mvcSiteMapNode>
-
+  
 </mvcSiteMap>

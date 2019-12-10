@@ -29,6 +29,8 @@
     <link href="~/Content/summernote-bs4.css" rel="stylesheet" />
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    @* Renderizado de secciones de Estilo*@
+    @RenderSection("Listar_Atletas_Css", required: false)
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -120,8 +122,8 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-                        <li class="nav-item has-treeview menu-open @Html.ActivePage("Home", "ViewAdministrador")">
-                            <a href="#" class="nav-link active">
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="#" class="nav-link @Html.ActivePage("Home", "ViewAdministrador")">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -130,45 +132,45 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="@Url.Action("ViewAdministrador", "Home")" class="nav-link active">
+                                    <a href="@Url.Action("ViewAdministrador", "Home")" class="nav-link @Html.ActivePage("Home", "ViewAdministrador")">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Dashboard v1</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item has-treeview @Html.ActivePage("HistorialMedico", "Crear")">
-                            <a href="#" class="nav-link ">
+                        <li class="nav-item has-treeview ">
+                            <a href="#" class="nav-link @Html.ActivePage("Atleta", "Index")">
                                 <i class="nav-icon fas fa-window-restore"></i>
                                 <p>
-                                    Examenes
+                                    Atletas
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="@Url.Action("Crear", "HistorialMedico")" class="nav-link ">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Historial Medico</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
+                                <li class="nav-item ">
                                     <a href="@Url.Action("", "")" class="nav-link ">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Examen Fisico</p>
+                                        <p>Crear</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="@Url.Action("Index", "Atleta")" class="nav-link @Html.ActivePage("Atleta", "Index")">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Listar</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Widgets
-                                    <span class="right badge badge-danger">New</span>
-                                </p>
-                            </a>
-                        </li>
+                        @*<li class="nav-item">
+                                <a href="pages/widgets.html" class="nav-link">
+                                    <i class="nav-icon fas fa-th"></i>
+                                    <p>
+                                        Widgets
+                                        <span class="right badge badge-danger">New</span>
+                                    </p>
+                                </a>
+                            </li>*@
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -183,11 +185,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">@Html.MvcSiteMap().SiteMapTitle()</h1>
+                            <h1 class="m-0 text-dark">@Html.MvcSiteMap().SiteMapTitle() <small style="text-transform:capitalize"> @ViewBag.Nombre</small></h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                @Html.MvcSiteMap().SiteMapPath()
+                                <li class="breadcrumb-item">@Html.MvcSiteMap().SiteMapPath() </li>
+
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -247,5 +250,7 @@
     <script src="~/Scripts/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="~/Scripts/demo.js"></script>
+    @* Renderizado de secciones de Script*@
+    @RenderSection("Crear_Historial_Medico_Script", required: false)
 </body>
 </html>
