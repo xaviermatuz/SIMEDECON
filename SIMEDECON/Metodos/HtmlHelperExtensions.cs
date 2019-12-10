@@ -22,5 +22,20 @@ namespace SIMEDECON.Metodos
 
             return classValue;
         }
+
+        public static string ActiveLi(this HtmlHelper helper, string controller, string action)
+        {
+            string classValue = "";
+
+            string currentController = helper.ViewContext.Controller.ValueProvider.GetValue("controller").RawValue.ToString();
+            string currentAction = helper.ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString();
+
+            if (currentController == controller && currentAction == action)
+            {
+                classValue = "menu-open";
+            }
+
+            return classValue;
+        }
     }
 }

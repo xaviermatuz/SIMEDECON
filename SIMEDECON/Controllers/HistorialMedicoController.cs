@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace SIMEDECON.Controllers
 {
+    [Authorize]
     public class HistorialMedicoController : Controller
     {
         public MeSysEntities db = new MeSysEntities();
@@ -20,6 +21,7 @@ namespace SIMEDECON.Controllers
             ViewBag.Nombre = model.Nombre_Completo;
             return model;
         }
+        [Authorize(Roles = "Medico,Administrador")]
         public ActionResult Crear(int ID)
         {
             var nom = db.Datos_Atleta.Find(ID);

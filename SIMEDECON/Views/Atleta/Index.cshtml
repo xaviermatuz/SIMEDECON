@@ -17,25 +17,24 @@
         </div>
         @foreach (Datos_Atleta oElemento in Atle)
         {
-            <div class="col-lg-3 col-md-6">
-                <div class="cardnigga">
-                    <div class="el-card-item">
-                        <div class="el-card-avatar el-overlay-1">
-                            <img src="~/@oElemento.Foto" alt="user" />
-                            <div class="el-overlay scrl-dwn">
+            <div class="col-lg-3 col-md-6" >
+                <div class="card lista-atleta" style="width: 268px; height: 440.31px;">
+                    <div class="el-card-item" style="width: 268px; height: 438.31px;">
+                        <div class="el-card-avatar el-overlay-1" style="width: 268px; height: 270.31px;">
+                            <img src="~/@oElemento.Foto" alt="user" style="width: 268px; height: 270.31px;" />
+                            <div class="el-overlay scrl-dwn" style="width: 268px; height: 270.31px;">
                                 <ul class="el-info">
-                                    <li><a class="btn default btn-outline image-popup-vertical-fit" href="~/HistorialMedico/Crear/@oElemento.ID"><i class="icon-question"></i></a></li>
-                                    <li><a class="btn default btn-outline image-popup-vertical-fit" href="~/HistorialMedico/Actualizar/@oElemento.ID"><i class="icon-eye"></i></a></li>
-                                    <li><a class="btn default btn-outline image-popup-vertical-fit" href="~/ExamenFisico/Crear/@oElemento.ID"><i class="mdi mdi-run"></i></a></li>
-                                    <li><a class="btn default btn-outline image-popup-vertical-fit" href="~/Lesiones/Index/@oElemento.ID"><i class="material-icons">accessible_forward</i></a></li>                                    
+                                    <li><a class="btn default btn-outline image-popup-vertical-fit" href="~/HistorialMedico/Crear/@oElemento.ID"><i class="fas fa-file-medical"></i></a></li>
+                                    <li><a class="btn default btn-outline image-popup-vertical-fit" href="~/Atleta/Mostrar/@oElemento.ID"><i class="fas fa-eye"></i></a></li>
+                                    <li><a class="btn default btn-outline image-popup-vertical-fit" href="~/ExamenFisico/Crear/@oElemento.ID"><i class="fas fa-stethoscope"></i></a></li>
+                                    <li><a class="btn default btn-outline image-popup-vertical-fit" href="~/Lesiones/Index/@oElemento.ID"><i class="fas fa-crutch"></i></a></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="el-card-content">
+                        <div class="el-card-content" style="background-color:#333;">
                             <h4 class="box-title">@oElemento.Nombre_Completo</h4>
                             <h5>@oElemento.Correo_Electronico</h5>
-                            <h5>Deporte</h5>      
-                            <br />
+                            <h5>Deporte</h5>
                         </div>
                     </div>
                 </div>

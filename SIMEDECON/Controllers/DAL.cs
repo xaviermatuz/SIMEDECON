@@ -11,13 +11,13 @@ namespace SIMEDECON.Controllers
 {
     public class DAL
     {
-        DataSet ds;
-        SqlDataAdapter da;
+        //DataSet ds;
+        //SqlDataAdapter da;
 
         public static SqlConnection connect()
         {
             //Reading the connection string from web.config    
-            string Name = ConfigurationManager.ConnectionStrings["Connect"].ConnectionString;
+            string Name = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             //Passing the string in sqlconnection.    
             SqlConnection con = new SqlConnection(Name);
             //Check wheather the connection is close or not if open close it else open it    
@@ -36,18 +36,18 @@ namespace SIMEDECON.Controllers
         }
         //Creating a method which accept any type of query from controller to execute and give result.    
         //result kept in datatable and send back to the controller.    
-        public DataTable MyMethod(string Query)
-        {
-            ds = new DataSet();
-            DataTable dt = new DataTable();
-            da = new SqlDataAdapter(Query, DAL.connect());
+        //public DataTable MyMethod(string Query)
+        //{
+        //    ds = new DataSet();
+        //    DataTable dt = new DataTable();
+        //    da = new SqlDataAdapter(Query, DAL.connect());
 
-            da.Fill(dt);
-            List<SelectListItem> list = new List<SelectListItem>();
-            List<SelectListItem> list1 = new List<SelectListItem>();
-            List<SelectListItem> list2 = new List<SelectListItem>();
-            return dt;
+        //    da.Fill(dt);
+        //    List<SelectListItem> list = new List<SelectListItem>();
+        //    List<SelectListItem> list1 = new List<SelectListItem>();
+        //    List<SelectListItem> list2 = new List<SelectListItem>();
+        //    return dt;
 
-        }
+        //}
     }
 }

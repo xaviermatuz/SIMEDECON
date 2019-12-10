@@ -6,6 +6,10 @@
     IEnumerable<SIMEDECON.Models.Carrera_Deportiva_Familiar> cdftabla2 = (IEnumerable<SIMEDECON.Models.Carrera_Deportiva_Familiar>)ViewBag.cdftabla;
 }
 
+@section Crear_Historial_Medico_Css
+{
+}
+
 <!-- Alergias box -->
 <div class="card">
     <div class="card-header">
@@ -19,157 +23,209 @@
     </div>
     <div class="card-body">
         <fieldset>
-            <div class="row m-b-40">
-                <div class="col-md-12">
-                    <label style="font-size:small" for="">Por favor indique todos los medicamentos con o sin receta medica y suplementos<small> (hierbas nutricionales) </small>que esta tomando Actualmente</label>
-                </div>
-            </div>
-
-            <div class="col-md-12 ">
-                <div class="col-md-12">
-                    <input type="checkbox" id="btnrelajantes" value="Relajante Musculares" name="btnrelajantes" onchange="javascript:mostrarcontenido(this.id,txtrelajante)" />
-                    <label for="btnrelajantes">Relajante Muscular</label>
-                </div>
-                <div class="col-md-8" id="txtrelajante" style="display:none;">
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" id="txtMEd" class="form-control" name="txt_medicamentos">
-                            <label class="form-label">Que Relajantes Musculares</label>
+            <div class="row">
+                <div class="col-8">
+                    <div class="col-md-12">
+                        <label style="font-size:1.125rem" for="">Por favor indique todos los medicamentos con o sin receta medica y suplementos<small> (hierbas nutricionales) </small>que esta tomando Actualmente</label>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="btnrelajantes" value="Relajante Musculares" name="btnrelajantes" onchange="javascript:mostrarcontenido(this.id,txtrelajante)" />
+                                    <label for="btnrelajantes">Relajante Muscular</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8" id="txtrelajante" style="display:none;">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" id="txtMEd" class="form-control" name="txt_medicamentos">
+                                    <label class="form-label">Que Relajantes Musculares</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="col-md-12">
-                    <input type="checkbox" id="btnantiinflamatorio" name="antiflamatorio" value="Antiinflamatorios" onchange="javascript:mostrarcontenido(this.id,txtantiinflamatorios)" />
-                    <label for="btnantiinflamatorio">Antiinflamatorios</label>
-                </div>
-                <div class="col-md-8" id="txtantiinflamatorios" style="display:none;">
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" id="txtanti" class="form-control" name="txt_antiinflamatorios">
-                            <label class="form-label"> Que Medicamentos Antiinflamatorios</label>
+                    <div class="col-md-12">
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="btnantiinflamatorio" name="antiflamatorio" value="Antiinflamatorios" onchange="javascript:mostrarcontenido(this.id,txtantiinflamatorios)" />
+                                    <label for="btnantiinflamatorio">Antiinflamatorios</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8" id="txtantiinflamatorios" style="display:none;">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" id="txtanti" class="form-control" name="txt_antiinflamatorios">
+                                    <label class="form-label"> Que Medicamentos Antiinflamatorios</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="col-md-12">
-                    <input type="checkbox" id="btnanalgesico" name="analgesico" value="Analgesicos" onchange="javascript:mostrarcontenido(this.id,txtanalgesico)" />
-                    <label for="btnanalgesico">Analgesico</label>
-                </div>
-                <div class="col-md-8" id="txtanalgesico" style="display:none;">
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" id="txtanalg" class="form-control" name="txt_analgesicos">
-                            <label class="form-label">Que Medicamentos Analgesicos</label>
+                    <div class="col-md-12">
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="btnanalgesico" name="analgesico" value="Analgesicos" onchange="javascript:mostrarcontenido(this.id,txtanalgesico)" />
+                                    <label for="btnanalgesico">Analgesico</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8" id="txtanalgesico" style="display:none;">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" id="txtanalg" class="form-control" name="txt_analgesicos">
+                                    <label class="form-label">Que Medicamentos Analgesicos</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="col-md-12">
-                    <input type="checkbox" id="btnotros" name="btn_otros" value="Otros Medicamentos" onchange="javascript:mostrarcontenido(this.id,txtotros)" />
-                    <label for="btnotros">Otros</label>
-                </div>
-                <div class="col-md-8" id="txtotros" style="display:none;">
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" id="txtots" class="form-control " name="txt_medicamentos_otros">
-                            <label class="form-label">Otros Medicamentos</label>
+                    <div class="col-md-12">
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="btnotros" name="btn_otros" value="Otros Medicamentos" onchange="javascript:mostrarcontenido(this.id,txtotros)" />
+                                    <label for="btnotros">Otros</label>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 m-b-20">
-                <label for="">¿Tienes Alergias?</label>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <input id="rdsi" value="Si" name="alergia" type="radio" />
-                    <label for="rdsi"> Si</label>
-                    <input type="radio" id="rdno" value="No" name="alergia" />
-                    <label for="rdno"> No</label>
-                </div>
-            </div>
-            <div id="alergico" style="display:none;">
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <input type="checkbox" id="btnmedalergico" name="medicamento_alergia" value="Alergico a medicamentos" onchange="javascript:mostrarcontenido(this.id,txtmedalergico)" />
-                        <label for="btnmedalergico">Medicamento</label>
-                    </div>
-                    <div class="col-md-8" id="txtmedalergico" style="display:none;">
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" class="form-control" id="txtmedicaale" name="txt_medicamentos_alergicos">
-                                <label class="form-label">A que Medicamentos es alergico</label>
+                        <div class="col-md-8" id="txtotros" style="display:none;">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" id="txtots" class="form-control " name="txt_medicamentos_otros">
+                                    <label class="form-label">Otros Medicamentos</label>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <input type="checkbox" id="btnpolen" value="Alergico a polen" name="polen" onchange="javascript:mostrarcontenido(this.id,txtpolen)" />
-                        <label for="btnpolen">Polen</label>
+                <div class="col-4">
+                    <div class="col-md-12 m-b-20">
+                        <label for="">¿Tienes Alergias?</label>
                     </div>
-                    <div class="col-md-8" id="txtpolen" style="display:none;">
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" id="polentxt" class="form-control" name="txt_alergia_polen">
-                                <label class="form-label" 0>Que flores te causan alergias</label>
+                    <div class="col-md-4">
+                        <!-- radio -->
+                        <div class="form-group clearfix">
+                            <div class="icheck-primary d-inline">
+                                <input id="rdsi" value="Si" name="alergia" type="radio" />
+                                <label for="rdsi"> Si</label>
+                            </div>
+                            <div class="icheck-primary d-inline">
+                                <input type="radio" id="rdno" value="No" name="alergia" />
+                                <label for="rdno"> No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="alergico" style="display:none;">
+                        <div class="col-md-12">
+                            <div class="col-md-2">
+                                <!-- checkbox -->
+                                <div class="form-group clearfix">
+                                    <div class="icheck-primary d-inline">
+                                        <input type="checkbox" id="btnmedalergico" name="medicamento_alergia" value="Alergico a medicamentos" onchange="javascript:mostrarcontenido(this.id,txtmedalergico)" />
+                                        <label for="btnmedalergico">Medicamento</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8" id="txtmedalergico" style="display:none;">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" id="txtmedicaale" name="txt_medicamentos_alergicos">
+                                        <label class="form-label">A que Medicamentos es alergico</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-2">
+                                <!-- checkbox -->
+                                <div class="form-group clearfix">
+                                    <div class="icheck-primary d-inline">
+                                        <input type="checkbox" id="btnpolen" value="Alergico a polen" name="polen" onchange="javascript:mostrarcontenido(this.id,txtpolen)" />
+                                        <label for="btnpolen">Polen</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8" id="txtpolen" style="display:none;">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" id="polentxt" class="form-control" name="txt_alergia_polen">
+                                        <label class="form-label" 0>Que flores te causan alergias</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-2">
+                                <!-- checkbox -->
+                                <div class="form-group clearfix">
+                                    <div class="icheck-primary d-inline">
+                                        <input type="checkbox" id="btncomida" name="comida" value="Comida" onchange="javascript:mostrarcontenido(this.id,txtcomida)" />
+                                        <label for="btncomida">Comida</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8" id="txtcomida" style="display:none;">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" id="txtalergiacomida" class="form-control" name="txtalergiacomida">
+                                        <label class="form-label">A que comida eres alergico</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-2">
+                                <!-- checkbox -->
+                                <div class="form-group clearfix">
+                                    <div class="icheck-primary d-inline">
+                                        <input type="checkbox" id="btnpiquetesdeinsectos" value="Piquetes de insectos" name="piquetesdeinsectos" onchange="javascript:mostrarcontenido(this.id,txtpiquetes)" />
+                                        <label for="btnpiquetesdeinsectos">Piquetes de insectos</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8" id="txtpiquetes" style="display:none;">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" id="txtpiquete" class="form-control" name="txtpiquete">
+                                        <label class="form-label">A que piquetes eres alergico</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-2">
+                                <!-- checkbox -->
+                                <div class="form-group clearfix">
+                                    <div class="icheck-primary d-inline">
+                                        <input type="checkbox" id="btnotrosalergias" name="otrosalergias" value="Otras alergias" onchange="javascript:mostrarcontenido(this.id,txtotrasalergias)" />
+                                        <label for="btnotrosalergias">Otros</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8" id="txtotrasalergias" style="display:none;">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="txtotra_alergia">
+                                        <label class="form-label">A que eres alergico</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <input type="checkbox" id="btncomida" name="comida" value="Comida" onchange="javascript:mostrarcontenido(this.id,txtcomida)" />
-                        <label for="btncomida">Comida</label>
-                    </div>
-                    <div class="col-md-8" id="txtcomida" style="display:none;">
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" id="txtalergiacomida" class="form-control" name="txtalergiacomida">
-                                <label class="form-label">A que comida eres alergico</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <input type="checkbox" id="btnpiquetesdeinsectos" value="Piquetes de insectos" name="piquetesdeinsectos" onchange="javascript:mostrarcontenido(this.id,txtpiquetes)" />
-                        <label for="btnpiquetesdeinsectos">Piquetes de insectos</label>
-                    </div>
-                    <div class="col-md-8" id="txtpiquetes" style="display:none;">
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" id="txtpiquete" class="form-control" name="txtpiquete">
-                                <label class="form-label">A que piquetes eres alergico</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <input type="checkbox" id="btnotrosalergias" name="otrosalergias" value="Otras alergias" onchange="javascript:mostrarcontenido(this.id,txtotrasalergias)" />
-                        <label for="btnotrosalergias">Otros</label>
-                    </div>
-                    <div class="col-md-8" id="txtotrasalergias" style="display:none;">
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" class="form-control" name="txtotra_alergia">
-                                <label class="form-label">A que eres alergico</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div>    
         </fieldset>
     </div>
     <!-- /.card -->
 </div>
 <!-- /.card -->
-
 <!-- Preguntas box -->
 <div class="card">
     <div class="card-header">
@@ -612,7 +668,6 @@
     <!-- /.card -->
 </div>
 <!-- /.card -->
-
 <!-- Carrera Dportiva box -->
 <div class="card">
     <div class="card-header">
@@ -626,157 +681,12 @@
     </div>
     <div class="card-body">
         <fieldset>
-            <div class="row m-b-40">
-                <div class="col-md-12">
-                    <label style="font-size:small" for="">Por favor indique todos los medicamentos con o sin receta medica y suplementos<small> (hierbas nutricionales) </small>que esta tomando Actualmente</label>
-                </div>
-            </div>
-
-            <div class="col-md-12 ">
-                <div class="col-md-12">
-                    <input type="checkbox" id="btnrelajantes" value="Relajante Musculares" name="btnrelajantes" onchange="javascript:mostrarcontenido(this.id,txtrelajante)" />
-                    <label for="btnrelajantes">Relajante Muscular</label>
-                </div>
-                <div class="col-md-8" id="txtrelajante" style="display:none;">
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" id="txtMEd" class="form-control" name="txt_medicamentos">
-                            <label class="form-label">Que Relajantes Musculares</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="col-md-12">
-                    <input type="checkbox" id="btnantiinflamatorio" name="antiflamatorio" value="Antiinflamatorios" onchange="javascript:mostrarcontenido(this.id,txtantiinflamatorios)" />
-                    <label for="btnantiinflamatorio">Antiinflamatorios</label>
-                </div>
-                <div class="col-md-8" id="txtantiinflamatorios" style="display:none;">
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" id="txtanti" class="form-control" name="txt_antiinflamatorios">
-                            <label class="form-label"> Que Medicamentos Antiinflamatorios</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="col-md-12">
-                    <input type="checkbox" id="btnanalgesico" name="analgesico" value="Analgesicos" onchange="javascript:mostrarcontenido(this.id,txtanalgesico)" />
-                    <label for="btnanalgesico">Analgesico</label>
-                </div>
-                <div class="col-md-8" id="txtanalgesico" style="display:none;">
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" id="txtanalg" class="form-control" name="txt_analgesicos">
-                            <label class="form-label">Que Medicamentos Analgesicos</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="col-md-12">
-                    <input type="checkbox" id="btnotros" name="btn_otros" value="Otros Medicamentos" onchange="javascript:mostrarcontenido(this.id,txtotros)" />
-                    <label for="btnotros">Otros</label>
-                </div>
-                <div class="col-md-8" id="txtotros" style="display:none;">
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" id="txtots" class="form-control " name="txt_medicamentos_otros">
-                            <label class="form-label">Otros Medicamentos</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 m-b-20">
-                <label for="">¿Tienes Alergias?</label>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <input id="rdsi" value="Si" name="alergia" type="radio" />
-                    <label for="rdsi"> Si</label>
-                    <input type="radio" id="rdno" value="No" name="alergia" />
-                    <label for="rdno"> No</label>
-                </div>
-            </div>
-            <div id="alergico" style="display:none;">
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <input type="checkbox" id="btnmedalergico" name="medicamento_alergia" value="Alergico a medicamentos" onchange="javascript:mostrarcontenido(this.id,txtmedalergico)" />
-                        <label for="btnmedalergico">Medicamento</label>
-                    </div>
-                    <div class="col-md-8" id="txtmedalergico" style="display:none;">
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" class="form-control" id="txtmedicaale" name="txt_medicamentos_alergicos">
-                                <label class="form-label">A que Medicamentos es alergico</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <input type="checkbox" id="btnpolen" value="Alergico a polen" name="polen" onchange="javascript:mostrarcontenido(this.id,txtpolen)" />
-                        <label for="btnpolen">Polen</label>
-                    </div>
-                    <div class="col-md-8" id="txtpolen" style="display:none;">
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" id="polentxt" class="form-control" name="txt_alergia_polen">
-                                <label class="form-label" 0>Que flores te causan alergias</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <input type="checkbox" id="btncomida" name="comida" value="Comida" onchange="javascript:mostrarcontenido(this.id,txtcomida)" />
-                        <label for="btncomida">Comida</label>
-                    </div>
-                    <div class="col-md-8" id="txtcomida" style="display:none;">
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" id="txtalergiacomida" class="form-control" name="txtalergiacomida">
-                                <label class="form-label">A que comida eres alergico</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <input type="checkbox" id="btnpiquetesdeinsectos" value="Piquetes de insectos" name="piquetesdeinsectos" onchange="javascript:mostrarcontenido(this.id,txtpiquetes)" />
-                        <label for="btnpiquetesdeinsectos">Piquetes de insectos</label>
-                    </div>
-                    <div class="col-md-8" id="txtpiquetes" style="display:none;">
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" id="txtpiquete" class="form-control" name="txtpiquete">
-                                <label class="form-label">A que piquetes eres alergico</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <input type="checkbox" id="btnotrosalergias" name="otrosalergias" value="Otras alergias" onchange="javascript:mostrarcontenido(this.id,txtotrasalergias)" />
-                        <label for="btnotrosalergias">Otros</label>
-                    </div>
-                    <div class="col-md-8" id="txtotrasalergias" style="display:none;">
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" class="form-control" name="txtotra_alergia">
-                                <label class="form-label">A que eres alergico</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </fieldset>
     </div>
     <!-- /.card -->
 </div>
 <!-- /.card -->
-
 <!-- Informacion Laboral/Economica box -->
 <div class="card">
     <div class="card-header">
@@ -790,157 +700,12 @@
     </div>
     <div class="card-body">
         <fieldset>
-            <div class="row m-b-40">
-                <div class="col-md-12">
-                    <label style="font-size:small" for="">Por favor indique todos los medicamentos con o sin receta medica y suplementos<small> (hierbas nutricionales) </small>que esta tomando Actualmente</label>
-                </div>
-            </div>
-
-            <div class="col-md-12 ">
-                <div class="col-md-12">
-                    <input type="checkbox" id="btnrelajantes" value="Relajante Musculares" name="btnrelajantes" onchange="javascript:mostrarcontenido(this.id,txtrelajante)" />
-                    <label for="btnrelajantes">Relajante Muscular</label>
-                </div>
-                <div class="col-md-8" id="txtrelajante" style="display:none;">
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" id="txtMEd" class="form-control" name="txt_medicamentos">
-                            <label class="form-label">Que Relajantes Musculares</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="col-md-12">
-                    <input type="checkbox" id="btnantiinflamatorio" name="antiflamatorio" value="Antiinflamatorios" onchange="javascript:mostrarcontenido(this.id,txtantiinflamatorios)" />
-                    <label for="btnantiinflamatorio">Antiinflamatorios</label>
-                </div>
-                <div class="col-md-8" id="txtantiinflamatorios" style="display:none;">
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" id="txtanti" class="form-control" name="txt_antiinflamatorios">
-                            <label class="form-label"> Que Medicamentos Antiinflamatorios</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="col-md-12">
-                    <input type="checkbox" id="btnanalgesico" name="analgesico" value="Analgesicos" onchange="javascript:mostrarcontenido(this.id,txtanalgesico)" />
-                    <label for="btnanalgesico">Analgesico</label>
-                </div>
-                <div class="col-md-8" id="txtanalgesico" style="display:none;">
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" id="txtanalg" class="form-control" name="txt_analgesicos">
-                            <label class="form-label">Que Medicamentos Analgesicos</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="col-md-12">
-                    <input type="checkbox" id="btnotros" name="btn_otros" value="Otros Medicamentos" onchange="javascript:mostrarcontenido(this.id,txtotros)" />
-                    <label for="btnotros">Otros</label>
-                </div>
-                <div class="col-md-8" id="txtotros" style="display:none;">
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" id="txtots" class="form-control " name="txt_medicamentos_otros">
-                            <label class="form-label">Otros Medicamentos</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 m-b-20">
-                <label for="">¿Tienes Alergias?</label>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <input id="rdsi" value="Si" name="alergia" type="radio" />
-                    <label for="rdsi"> Si</label>
-                    <input type="radio" id="rdno" value="No" name="alergia" />
-                    <label for="rdno"> No</label>
-                </div>
-            </div>
-            <div id="alergico" style="display:none;">
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <input type="checkbox" id="btnmedalergico" name="medicamento_alergia" value="Alergico a medicamentos" onchange="javascript:mostrarcontenido(this.id,txtmedalergico)" />
-                        <label for="btnmedalergico">Medicamento</label>
-                    </div>
-                    <div class="col-md-8" id="txtmedalergico" style="display:none;">
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" class="form-control" id="txtmedicaale" name="txt_medicamentos_alergicos">
-                                <label class="form-label">A que Medicamentos es alergico</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <input type="checkbox" id="btnpolen" value="Alergico a polen" name="polen" onchange="javascript:mostrarcontenido(this.id,txtpolen)" />
-                        <label for="btnpolen">Polen</label>
-                    </div>
-                    <div class="col-md-8" id="txtpolen" style="display:none;">
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" id="polentxt" class="form-control" name="txt_alergia_polen">
-                                <label class="form-label" 0>Que flores te causan alergias</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <input type="checkbox" id="btncomida" name="comida" value="Comida" onchange="javascript:mostrarcontenido(this.id,txtcomida)" />
-                        <label for="btncomida">Comida</label>
-                    </div>
-                    <div class="col-md-8" id="txtcomida" style="display:none;">
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" id="txtalergiacomida" class="form-control" name="txtalergiacomida">
-                                <label class="form-label">A que comida eres alergico</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <input type="checkbox" id="btnpiquetesdeinsectos" value="Piquetes de insectos" name="piquetesdeinsectos" onchange="javascript:mostrarcontenido(this.id,txtpiquetes)" />
-                        <label for="btnpiquetesdeinsectos">Piquetes de insectos</label>
-                    </div>
-                    <div class="col-md-8" id="txtpiquetes" style="display:none;">
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" id="txtpiquete" class="form-control" name="txtpiquete">
-                                <label class="form-label">A que piquetes eres alergico</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <input type="checkbox" id="btnotrosalergias" name="otrosalergias" value="Otras alergias" onchange="javascript:mostrarcontenido(this.id,txtotrasalergias)" />
-                        <label for="btnotrosalergias">Otros</label>
-                    </div>
-                    <div class="col-md-8" id="txtotrasalergias" style="display:none;">
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" class="form-control" name="txtotra_alergia">
-                                <label class="form-label">A que eres alergico</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </fieldset>
     </div>
     <!-- /.card -->
 </div>
 <!-- /.card -->
-
 <!-- Informacion Extra box -->
 <div class="card">
     <div class="card-header">
@@ -954,151 +719,7 @@
     </div>
     <div class="card-body">
         <fieldset>
-            <div class="row m-b-40">
-                <div class="col-md-12">
-                    <label style="font-size:small" for="">Por favor indique todos los medicamentos con o sin receta medica y suplementos<small> (hierbas nutricionales) </small>que esta tomando Actualmente</label>
-                </div>
-            </div>
-
-            <div class="col-md-12 ">
-                <div class="col-md-12">
-                    <input type="checkbox" id="btnrelajantes" value="Relajante Musculares" name="btnrelajantes" onchange="javascript:mostrarcontenido(this.id,txtrelajante)" />
-                    <label for="btnrelajantes">Relajante Muscular</label>
-                </div>
-                <div class="col-md-8" id="txtrelajante" style="display:none;">
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" id="txtMEd" class="form-control" name="txt_medicamentos">
-                            <label class="form-label">Que Relajantes Musculares</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="col-md-12">
-                    <input type="checkbox" id="btnantiinflamatorio" name="antiflamatorio" value="Antiinflamatorios" onchange="javascript:mostrarcontenido(this.id,txtantiinflamatorios)" />
-                    <label for="btnantiinflamatorio">Antiinflamatorios</label>
-                </div>
-                <div class="col-md-8" id="txtantiinflamatorios" style="display:none;">
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" id="txtanti" class="form-control" name="txt_antiinflamatorios">
-                            <label class="form-label"> Que Medicamentos Antiinflamatorios</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="col-md-12">
-                    <input type="checkbox" id="btnanalgesico" name="analgesico" value="Analgesicos" onchange="javascript:mostrarcontenido(this.id,txtanalgesico)" />
-                    <label for="btnanalgesico">Analgesico</label>
-                </div>
-                <div class="col-md-8" id="txtanalgesico" style="display:none;">
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" id="txtanalg" class="form-control" name="txt_analgesicos">
-                            <label class="form-label">Que Medicamentos Analgesicos</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="col-md-12">
-                    <input type="checkbox" id="btnotros" name="btn_otros" value="Otros Medicamentos" onchange="javascript:mostrarcontenido(this.id,txtotros)" />
-                    <label for="btnotros">Otros</label>
-                </div>
-                <div class="col-md-8" id="txtotros" style="display:none;">
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" id="txtots" class="form-control " name="txt_medicamentos_otros">
-                            <label class="form-label">Otros Medicamentos</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 m-b-20">
-                <label for="">¿Tienes Alergias?</label>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <input id="rdsi" value="Si" name="alergia" type="radio" />
-                    <label for="rdsi"> Si</label>
-                    <input type="radio" id="rdno" value="No" name="alergia" />
-                    <label for="rdno"> No</label>
-                </div>
-            </div>
-            <div id="alergico" style="display:none;">
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <input type="checkbox" id="btnmedalergico" name="medicamento_alergia" value="Alergico a medicamentos" onchange="javascript:mostrarcontenido(this.id,txtmedalergico)" />
-                        <label for="btnmedalergico">Medicamento</label>
-                    </div>
-                    <div class="col-md-8" id="txtmedalergico" style="display:none;">
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" class="form-control" id="txtmedicaale" name="txt_medicamentos_alergicos">
-                                <label class="form-label">A que Medicamentos es alergico</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <input type="checkbox" id="btnpolen" value="Alergico a polen" name="polen" onchange="javascript:mostrarcontenido(this.id,txtpolen)" />
-                        <label for="btnpolen">Polen</label>
-                    </div>
-                    <div class="col-md-8" id="txtpolen" style="display:none;">
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" id="polentxt" class="form-control" name="txt_alergia_polen">
-                                <label class="form-label" 0>Que flores te causan alergias</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <input type="checkbox" id="btncomida" name="comida" value="Comida" onchange="javascript:mostrarcontenido(this.id,txtcomida)" />
-                        <label for="btncomida">Comida</label>
-                    </div>
-                    <div class="col-md-8" id="txtcomida" style="display:none;">
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" id="txtalergiacomida" class="form-control" name="txtalergiacomida">
-                                <label class="form-label">A que comida eres alergico</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <input type="checkbox" id="btnpiquetesdeinsectos" value="Piquetes de insectos" name="piquetesdeinsectos" onchange="javascript:mostrarcontenido(this.id,txtpiquetes)" />
-                        <label for="btnpiquetesdeinsectos">Piquetes de insectos</label>
-                    </div>
-                    <div class="col-md-8" id="txtpiquetes" style="display:none;">
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" id="txtpiquete" class="form-control" name="txtpiquete">
-                                <label class="form-label">A que piquetes eres alergico</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <input type="checkbox" id="btnotrosalergias" name="otrosalergias" value="Otras alergias" onchange="javascript:mostrarcontenido(this.id,txtotrasalergias)" />
-                        <label for="btnotrosalergias">Otros</label>
-                    </div>
-                    <div class="col-md-8" id="txtotrasalergias" style="display:none;">
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" class="form-control" name="txtotra_alergia">
-                                <label class="form-label">A que eres alergico</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </fieldset>
     </div>
     <!-- /.card -->
