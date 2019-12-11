@@ -21,6 +21,7 @@ namespace SIMEDECON.Controllers
             ViewBag.Nombre = model.Nombre_Completo;
             return model;
         }
+
         [Authorize(Roles = "Medico,Administrador")]
         public ActionResult Crear(int ID)
         {
