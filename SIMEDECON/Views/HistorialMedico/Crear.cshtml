@@ -8,6 +8,14 @@
 
 @section Crear_Historial_Medico_Css
 {
+<style>
+    .centrar {        
+        position: relative; /*it can be fixed too*/
+        margin: auto;
+        /*this to solve "the content will not be cut when the window is smaller than the content": */
+        overflow: auto;
+    }
+</style>
 }
 
 <!-- Alergias box -->
@@ -220,7 +228,7 @@
                         </div>
                     </div>
                 </div>
-            </div>    
+            </div>
         </fieldset>
     </div>
     <!-- /.card -->
@@ -924,7 +932,7 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>                
+                </div>
             </div>
             <hr />
             <div class="row col-md-12 ">
@@ -999,25 +1007,50 @@
                     </table>
                 </div>
             </div>
-            <hr />
-            <h4 class="card-title"> Entrenamientos</h4>
+        </fieldset>
+    </div>
+    <!-- /.card -->
+</div>
+<!-- /.card -->
+<!-- Entrenamiento box -->
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title" style="text-transform: capitalize;">Entrenamientos</h3>
+
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="card-body">
+        <fieldset>
             <div class="row">
-                <div class="row col-sm-4">
-                    <div class="col-sm-12 m-b-40">
+                <div class="col-md-4">
+                    <div style="text-align:center" class="col-md-8">
                         <label for="">Entreno(dias por semana)</label>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="form-group ">
-                            <input id="menosde1dia" value="Menos de 1 dia" name="entrenamiento" type="radio" />
-                            <label for="menosde1dia"> Menos de 1 dia</label>
-                            <input type="radio" id="entre1y3dias" value="Entre 1 y 3 dias" name="entrenamiento" />
-                            <label for="entre1y3dias"> Entre 1 y 3 dias</label>
-                            <input id="entre3y5dias" value="Entre 3 y 5 dias" name="entrenamiento" type="radio" />
-                            <label for="entre3y5dias"> Entre 3 y 5 dias</label>
-                            <input type="radio" id="entre5y10dias" value="Entre 5 y 10 dias" name="entrenamiento" />
-                            <label for="entre5y10dias"> Entre 5 y 10 dias</label>
-                            <input id="masde10dias" value="Mas de 10 dias" name="entrenamiento" type="radio" />
-                            <label for="masde10dias"> Mas de 10 dias</label>
+                        <!-- radio -->
+                        <div class="form-group clearfix">
+                            <div class="icheck-primary d-inline">
+                                <input id="menosde1dia" value="Menos de 1 dia" name="entrenamiento" type="radio" />
+                                <label for="menosde1dia"> Menos de 1 dia</label>
+                            </div>
+                            <div class="icheck-primary d-inline">
+                                <input type="radio" id="entre1y3dias" value="Entre 1 y 3 dias" name="entrenamiento" />
+                                <label for="entre1y3dias"> Entre 1 y 3 dias</label>
+                            </div>
+                            <div class="icheck-primary d-inline">
+                                <input id="entre3y5dias" value="Entre 3 y 5 dias" name="entrenamiento" type="radio" />
+                                <label for="entre3y5dias"> Entre 3 y 5 dias</label>
+                            </div>
+                            <div class="icheck-primary d-inline">
+                                <input type="radio" id="entre5y10dias" value="Entre 5 y 10 dias" name="entrenamiento" />
+                                <label for="entre5y10dias"> Entre 5 y 10 dias</label>
+                            </div>
+                            <div class="icheck-primary d-inline">
+                                <input id="masde10dias" value="Mas de 10 dias" name="entrenamiento" type="radio" />
+                                <label for="masde10dias"> Mas de 10 dias</label>
+                            </div>
                             <div class="col-md-12">
                                 <div class="form-group form-float ">
                                     <div class="form-line">
@@ -1029,71 +1062,99 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="col-md-12 m-b-20">
+                <div class="col-md-4">
+                    <div style="text-align:center" class="col-md-6">
                         <label for="">Horas de entrenamiento por sesion</label>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="form-group ">
-                            <input id="1y2horas" value="1 y 2 horas" name="por_sesion" type="radio" />
-                            <label for="1y2horas">1 y 2 horas</label>
-                            <input type="radio" id="2y4horas" value="2 y 4 horas" name="por_sesion" />
-                            <label for="2y4horas">2 y 4 horas</label>
-                            <input id="4y6horas" value="4 y 6 horas" name="por_sesion" type="radio" />
-                            <label for="4y6horas">4 y 6 horas</label>
-                            <input type="radio" id="masde6" value="Mas de 6 horas" name="por_sesion" />
-                            <label for="masde6"> Mas de 6 horas </label>
+                        <!-- radio -->
+                        <div class="form-group clearfix">
+                            <div class="icheck-primary d-inline">
+                                <input id="1y2horas" value="1 y 2 horas" name="por_sesion" type="radio" />
+                                <label for="1y2horas">1 y 2 horas</label>
+                            </div>
+                            <div class="icheck-primary d-inline">
+                                <input type="radio" id="2y4horas" value="2 y 4 horas" name="por_sesion" />
+                                <label for="2y4horas">2 y 4 horas</label>
+                            </div>
+                            <div class="icheck-primary d-inline">
+                                <input id="4y6horas" value="4 y 6 horas" name="por_sesion" type="radio" />
+                                <label for="4y6horas">4 y 6 horas</label>
+                            </div>
+                            <div class="icheck-primary d-inline">
+                                <input type="radio" id="masde6" value="Mas de 6 horas" name="por_sesion" />
+                                <label for="masde6"> Mas de 6 horas </label>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="col-md-12 m-b-20">
+                <div class="col-md-4">
+                    <div style="text-align:center" class="col-md-12">
                         <label for="">Modalidad de entrenamiento</label>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <input id="sinentrenador" value="Sin entrenador" name="modalidad_entrenamiento" type="radio" />
-                            <label for="sinentrenador"> Sin Entrenador</label>
-                            <input type="radio" id="soloyentrenador" value="Solo y / o con entrenador" name="modalidad_entrenamiento" />
-                            <label for="soloyentrenador"> Solo y/o con entrenador</label>
-                            <input id="conentrenador" value="Con entrenador" name="modalidad_entrenamiento" type="radio" />
-                            <label for="conentrenador"> Con entrenador</label>
-                            <input type="radio" id="cmentre" value="Con mas de un entrenador" name="modalidad_entrenamiento" />
-                            <label for="cmentre"> Con mas de un entrenador</label>
+                        <!-- radio -->
+                        <div class="form-group clearfix">
+                            <div class="icheck-primary d-inline">
+                                <input id="sinentrenador" value="Sin entrenador" name="modalidad_entrenamiento" type="radio" />
+                                <label for="sinentrenador"> Sin Entrenador</label>
+                            </div>
+                            <div class="icheck-primary d-inline">
+                                <input type="radio" id="soloyentrenador" value="Solo y / o con entrenador" name="modalidad_entrenamiento" />
+                                <label for="soloyentrenador"> Solo y/o con entrenador</label>
+                            </div>
+                            <div class="icheck-primary d-inline">
+                                <input id="conentrenador" value="Con entrenador" name="modalidad_entrenamiento" type="radio" />
+                                <label for="conentrenador"> Con entrenador</label>
+                            </div>
+                            <div class="icheck-primary d-inline">
+                                <input type="radio" id="cmentre" value="Con mas de un entrenador" name="modalidad_entrenamiento" />
+                                <label for="cmentre"> Con mas de un entrenador</label>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row col-sm-4">
-                    <div class="col-md-12 m-b-40">
+                <div class="col-md-6">
+                    <div style="text-align:center" class="col-md-6">
                         <label for="">Cuento con un plan de entrenamiento que:</label>
-                    </div>
-                    <div class="col-md-12 m-t-10">
-                        <div class="form-group ">
-
-                            <input id="cons" value="Conozco y sigo" name="plan" type="radio" />
-                            <label for="cons">Conozco y sigo</label>
-                            <input type="radio" id="consns" value="Conozco,Pero no sigo" name="plan" />
-                            <label for="consns">Conozco,pero no sigo</label>
-                            <input id="nocns" value="No Conozco" name="plan" type="radio" />
-                            <label for="nocns"> No Conozco</label>
-                            <br>
-                            <input type="radio" id="ntengo" value="No Tengo" name="plan" />
-                            <label for="ntengo">No Tengo</label><br>
-                            <input id="diseñado" value="Diseñado Por mi " name="plan" type="radio" />
-                            <label for="diseñado">Diseñado por mi</label>
+                        <!-- radio -->
+                        <div class="form-group clearfix">
+                            <div class="icheck-primary d-inline">
+                                <input id="cons" value="Conozco y sigo" name="plan" type="radio" />
+                                <label for="cons">Conozco y sigo</label>
+                            </div>
+                            <div class="icheck-primary d-inline">
+                                <input type="radio" id="consns" value="Conozco,Pero no sigo" name="plan" />
+                                <label for="consns">Conozco,pero no sigo</label>
+                            </div>
+                            <div class="icheck-primary d-inline">
+                                <input id="nocns" value="No Conozco" name="plan" type="radio" />
+                                <label for="nocns"> No Conozco</label>
+                            </div>
+                            <div class="icheck-primary d-inline">
+                                <input type="radio" id="ntengo" value="No Tengo" name="plan" />
+                                <label for="ntengo">No Tengo</label>
+                            </div>
+                            <div class="icheck-primary d-inline">
+                                <input id="diseñado" value="Diseñado Por mi " name="plan" type="radio" />
+                                <label for="diseñado">Diseñado por mi</label>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row col-sm-6">
-                    <div class="col-md-12 m-b-40">
+                <div class="row col-md-6">
+                    <div style="text-align:center" class="col-md-8">
                         <label for="">Sus actividades se adaptan a sus horararios y sesiones de entrenamiento</label>
-                    </div>
-                    <div class="col-md-8 m-t-20">
-                        <div class="form-group ">
-                            <input id="btn_actividades_Si" value="Si" name="acti" type="radio" />
-                            <label for="btn_actividades_Si">Si</label><br>
-                            <input type="radio" id="btn_medianamente" value="Medianamente" name="acti" />
-                            <label for="btn_medianamente">Medianamente</label><br>
+                        <!-- radio -->
+                        <div class="form-group clearfix">
+                            <div class="icheck-primary d-inline">
+                                <input id="btn_actividades_Si" value="Si" name="acti" type="radio" />
+                                <label for="btn_actividades_Si">Si</label>
+                            </div>
+                            <div class="icheck-primary d-inline">
+                                <input type="radio" id="btn_medianamente" value="Medianamente" name="acti" />
+                                <label for="btn_medianamente">Medianamente</label>
+                            </div>
+                            <div class="icheck-primary d-inline">
+                                <input id="btn_actividades_No" value="No" name="acti" type="radio" />
+                                <label for="btn_actividades_No">No</label>
+                            </div>
                             <div id="medipor" style="display:none;">
                                 <div class="col-md-12">
                                     <div class="form-group form-float">
@@ -1104,8 +1165,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <input id="btn_actividades_No" value="No" name="acti" type="radio" />
-                            <label for="btn_actividades_No">No</label>
                             <div id="no_porque" style="display:none;">
                                 <div class="col-md-12">
                                     <div class="form-group form-float">
@@ -1119,11 +1178,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12 m-b-40">
-                    <label for="">Su sitio de entrenamiento es:</label>
-                </div>
                 <div class="row col-md-12">
-                    <div class="col-md-6">
+                    <div style="text-align:center" class="col-md-6">
+                        <label for="">Su sitio de entrenamiento es:</label>
                         <div class="form-group form-float">
                             <div class="form-line">
                                 <input type="text" class="form-control" name="sitio">
@@ -1131,15 +1188,22 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <input id="btn_inadecuado" value="inadecuado" name="inad" type="checkbox" onchange="javascript:mostrarcontenido(this.id,txt_inadecuado)" />
-                        <label for="btn_inadecuado">inadecuado</label>
+                    <br />
+                    <div class="col-md-2 centrar">
+                        <!-- checkbox -->
+                        <div class="form-group clearfix form-line">
+                            <div class="icheck-primary d-inline">
+                                <input id="btn_inadecuado" value="inadecuado" name="inad" type="checkbox" onchange="javascript:mostrarcontenido(this.id,txt_inadecuado)" />
+                                <label for="btn_inadecuado">Inadecuado</label>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-4" id="txt_inadecuado" style="display:none;">
+                    <div class="col-md-4 centrar" id="txt_inadecuado" style="display:none;text-align:center">
+                        <label for=""></label>
+                        <label for=""></label>
                         <div class="form-group form-float">
                             <div class="form-line">
                                 <input type="text" id="inadec" class="form-control" name="inadec">
-                                <span class="bar"></span>
                                 <label class="form-label">¿Porque es inadecuado?</label>
                             </div>
                         </div>
@@ -1163,17 +1227,270 @@
         </div>
     </div>
     <div class="card-body">
-        <fieldset>
-            
+        <fieldset>            
+            <div class="row col-md-12">
+                <div class="col-md-6">
+                    <div style="text-align:center" class="col-md-12">
+                        <label>Trabaja Actualmente</label>
+                        <!-- radio -->
+                        <div class="form-group clearfix">
+                            <div class="icheck-primary d-inline">
+                                <input id="trabaja_si" value="Si" name="trabaja" type="radio" />
+                                <label for="trabaja_si"> Si</label>
+                            </div>
+                            <div class="icheck-primary d-inline">
+                                <input type="radio" id="trabaja_no" value="No" name="trabaja" />
+                                <label for="trabaja_no"> No</label>
+                            </div>                                                        
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div style="text-align:center" class="col-md-12">
+                        <label>Tiene personas a cargo</label>
+                        <!-- radio -->
+                        <div class="form-group clearfix">
+                            <div class="icheck-primary d-inline">
+                                <input id="persona_si" value="Si" name="personas" type="radio" />
+                                <label for="persona_si"> Si</label>
+                            </div>
+                            <div class="icheck-primary d-inline">
+                                <input type="radio" id="persona_no" value="No" name="personas" />
+                                <label for="persona_no"> No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col-md-12">
+                    <div class="col-md-12">
+                        <label>Las necesidades economicas del atleta para su practica deportiva son asumidas por:</label>
+                    </div>                    
+                    <div class="col-md-6">
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix form-line">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="Atleta" class="filled-in" name="NEA" value="Atleta" />
+                                    <label for="Atleta">Atleta</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix form-line">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="Padre" class="filled-in" name="NEP" value="Padre" />
+                                    <label for="Padre">Padre</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix form-line">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="Madre" class="filled-in" name="NEM" value="Madre" />
+                                    <label for="Madre">Madre</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix form-line">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="Pareja" class="filled-in" name="NEPA" value="Pareja" />
+                                    <label for="Pareja">Pareja</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix form-line">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="otmf" class="filled-in" name="NEOMF" value="Otros Familiares" onchange="javascript:mostrarcontenido(this.id,otros_familiares)" />
+                                    <label for="otmf">Otros Miembros de la familia</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12" id="otros_familiares" style="display:none;text-align:center">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="txt_otrosmiembros">
+                                        <label class="form-label">¿Que Familiares?</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix form-line">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="Otros/Cuales" class="filled-in" name="NEOMC" value="Otros" onchange="javascript:mostrarcontenido(this.id,otros_persom)" />
+                                    <label for="Otros/Cuales">Otros/Cuales:</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12" id="otros_persom" style="display:none;text-align:center">
+                                <div class="form-group form-float ">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="txt_otrospersonas">
+                                        <label class="form-label">¿Que personas?</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix form-line">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="nram" class="filled-in" name="NENRAM" value="No recibe apoyo Monetario" />
+                                    <label for="nram">No recibe apoyo Monetario</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix form-line">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="ampd" class="filled-in" name="NEAMPD" value="Apoyo monetario de programa deportivo" />
+                                    <label for="ampd">Apoyo monetario de programa deportivo</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix form-line">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="Federación" class="filled-in" name="NEF" value="Federación" />
+                                    <label for="Federación">Federación</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix form-line">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="Otros_apoyos" class="filled-in" name="NEOA" value="Otros apoyos" onchange="javascript:mostrarcontenido(this.id,otrosApoyos)" />
+                                    <label for="Otros_apoyos">Otros apoyos</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12" id="otrosApoyos" style="display:none;text-align:center">
+                                <div class="form-group form-float ">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="txt_otrosapoyos1">
+                                        <label class="form-label">Especificar</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col-md-12">
+                    <div class="col-md-12">
+                        <label>En que consiste el apoyo que recibe:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix form-line">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="monetario" class="filled-in" name="CAM" value="Monetario" />
+                                    <label for="monetario">Monetario</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix form-line">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="ecp" class="filled-in" name="CAECD" value="Equipo ciencias del deporte" />
+                                    <label for="ecp">Equipo ciencias del deporte</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix form-line">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="Educativo" class="filled-in" name="CAE" value="Educativo" />
+                                    <label for="Educativo">Educativo</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix form-line">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="Alojamiento" class="filled-in" name="CAA" value="Alojamiento" />
+                                    <label for="Alojamiento">Alojamiento</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix form-line">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="Transporte" class="filled-in" name="CAT" value="Transporte" />
+                                    <label for="Transporte">Transporte</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix form-line">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="Alimentacion" class="filled-in" name="CAAL" value="Alimentacion" />
+                                    <label for="Alimentacion">Alimentacion</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <div class="row col-md-12">
+                    <div class="col-md-12">
+                        <label>En que invierte su apoyo monetario</label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix form-line">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="pd" class="filled-in" name="IAMPD" value="Practica deportiva" />
+                                    <label for="pd">Practica deportiva</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix form-line">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="ef" class="filled-in" name="IAMEF" value="Economia Familiar" />
+                                    <label for="ef">Economia Familiar </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix form-line">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="Educacion" class="filled-in" name="IAME" value="Educacion" />
+                                    <label for="Educacion">Educacion</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </fieldset>
     </div>
     <!-- /.card -->
 </div>
 <!-- /.card -->
-<!-- Informacion Extra box -->
+<!-- Informacion Familiar box -->
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title" style="text-transform: capitalize;">Informacion Extra</h3>
+        <h3 class="card-title" style="text-transform: capitalize;">Informacion Familiar</h3>
 
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -1183,8 +1500,566 @@
     </div>
     <div class="card-body">
         <fieldset>
-            
+            <div class="row col-md-12">
+                <div class="row col-md-4">
+                    <div class="col-md-12">
+                        <label>1)Con quien vive</label>
+                    </div>
+                    <div class="col-md-12">
+                        <!-- checkbox -->
+                        <div class="form-group clearfix form-line">
+                            <div class="icheck-primary d-inline">
+                                <input type="checkbox" id="soltero" class="filled-in" name="CQVS" value="Soltero(a)" />
+                                <label for="soltero">Soltero(a)</label>
+                            </div>
+                        </div>
+                        <!-- checkbox -->
+                        <div class="form-group clearfix form-line">
+                            <div class="icheck-primary d-inline">
+                                <input type="checkbox" id="acompañado" class="filled-in" name="CQVA" value="Acompañado" />
+                                <label for="acompañado">Acompañado</label>
+                            </div>
+                        </div>
+                        <!-- checkbox -->
+                        <div class="form-group clearfix form-line">
+                            <div class="icheck-primary d-inline">
+                                <input type="checkbox" id="Padre_2" class="filled-in" name="CQVPA" value="Padre" />
+                                <label for="Padre_2">Padre</label>
+                            </div>
+                        </div>
+                        <!-- checkbox -->
+                        <div class="form-group clearfix form-line">
+                            <div class="icheck-primary d-inline">
+                                <input type="checkbox" id="Madre_2" class="filled-in" name="CQVMA" value="Madre" />
+                                <label for="Madre_2">Madre</label>
+                            </div>
+                        </div>
+                        <!-- checkbox -->
+                        <div class="form-group clearfix form-line">
+                            <div class="icheck-primary d-inline">
+                                <input type="checkbox" id="Hermanos" class="filled-in" name="CQVHE" value="Hermanos" onchange="javascript:mostrarcontenido(this.id,hermano)" />
+                                <label for="Hermanos">Hermanos</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12" id="hermano" style="display:none;text-align:center">
+                            <div class="form-group from-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="txt_Chermanos">
+                                    <label class="form-label">Cuantos Hermanos</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- checkbox -->
+                        <div class="form-group clearfix form-line">
+                            <div class="icheck-primary d-inline">
+                                <input type="checkbox" id="Hijos" class="filled-in" name="CQVHI" value="Hijos" onchange="javascript:mostrarcontenido(this.id,hijo)" />
+                                <label for="Hijos">Hijos</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12" id="hijo" style="display:none;text-align:center">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="txt_cHijos">
+                                    <label class="form-label">Cuantos hijos</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- checkbox -->
+                        <div class="form-group clearfix form-line">
+                            <div class="icheck-primary d-inline">
+                                <input type="checkbox" id="otrossfamiliares" class="filled-in" name="CQVOF" value="Otros Familiares" onchange="javascript:mostrarcontenido(this.id,otrosfamiliare)" />
+                                <label for="otrossfamiliares">Otros Familiares</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12" id="otrosfamiliare" style="display:none;text-align:center">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="txt_Qfamiliar">
+                                    <label class="form-label">Que familiaress</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- checkbox -->
+                        <div class="form-group clearfix form-line">
+                            <div class="icheck-primary d-inline">
+                                <input type="checkbox" id="Otros_info" class="filled-in" name="CQVO" value="Otros" onchange="javascript:mostrarcontenido(this.id,otros_a)" />
+                                <label for="Otros_info">Otros</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12" id="otros_a" style="display:none;text-align:center">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="txt_Qotros">
+                                    <label class="form-label">Que Otros</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- checkbox -->
+                        <div class="form-group clearfix form-line">
+                            <div class="icheck-primary d-inline">
+                                <input type="checkbox" id="aldep" class="filled-in" name="CQVAD" value="Alojamiento Deportivo" />
+                                <label for="aldep">Alojamiento Deportivo</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col-md-4">
+                    <div class="row col-md-12">
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <label>2)¿Tiene Hijos?</label>
+                            </div>
+                            <!-- radio -->
+                            <div class="form-group clearfix">
+                                <div class="icheck-primary d-inline">
+                                    <input id="rdsi_hijos" value="Si" name="btnhijos" type="radio" />
+                                    <label for="rdsi_hijos"> Si</label>
+                                </div>
+                                <div class="icheck-primary d-inline">
+                                    <input type="radio" id="rdno_hijos" value="No" name="btnhijos" />
+                                    <label for="rdno_hijos"> No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-12 ">
+                                <label>3)    ¿Proyecta Tener Hijos?</label>
+                            </div>
+                            <!-- radio -->
+                            <div class="form-group clearfix">
+                                <div class="icheck-primary d-inline">
+                                    <input id="rdsi_mhijos" value="Si" name="pmhijos" type="radio" />
+                                    <label for="rdsi_mhijos"> Si</label>
+                                </div>
+                                <div class="icheck-primary d-inline">
+                                    <input type="radio" id="rdno_mhijos" value="No" name="pmhijos" />
+                                    <label for="rdno_mhijos"> No</label>
+                                </div>
+                                <div class="icheck-primary d-inline">
+                                    <input type="radio" id="rdnose_mhijos" value="No se" name="pmhijos" />
+                                    <label for="rdnose_mhijos"> No se</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col-md-4">
+                    <div class="col-md-12">
+                        <div class="col-md-12">
+                            <label>4)Números de personas con las que Vive</label>
+                        </div>
+                        <div class="col-md-12">
+                            <!-- radio -->
+                            <div class="form-group clearfix">
+                                <div class="icheck-primary d-inline">
+                                    <input type="radio" id="menosde4" class="filled-in" name="numvive" value="4 o menos" onchange="javascript:mostrarcontenido(this.id,menosdecuatro)" />
+                                    <label for="menosde4">4 o menos</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12" id="menosdecuatro" style="display:none;">
+                                <div style="text-align:center" class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="txt_menosde4">
+                                        <label class="form-label">Especificar</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- radio -->
+                            <div class="form-group clearfix">
+                                <div class="icheck-primary d-inline">
+                                    <input type="radio" id="4a7" class="filled-in" name="numvive" value="De 4 a 7" />
+                                    <label for="4a7">De 4 a 7</label>
+                                </div>
+                            </div>
+                            <!-- radio -->
+                            <div class="form-group clearfix">
+                                <div class="icheck-primary d-inline">
+                                    <input type="radio" id="masde7" class="filled-in" name="numvive" value="Mas de 7" />
+                                    <label for="masde7">Mas de 7</label>
+                                </div>
+                            </div>
+                            <!-- radio -->
+                            <div class="form-group clearfix">
+                                <div class="icheck-primary d-inline">
+                                    <input type="radio" id="compañerosdeportivo" class="filled-in" name="numvive" value="Con Compañeros en alojamiento deportivo" />
+                                    <label for="compañerosdeportivo">Con Compañeros en alojamiento deportivo</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </fieldset>
+    </div>
+    <!-- /.card -->
+    <!-- Educacion y formacion box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title" style="text-transform: capitalize;">Educaión y Formación</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            <fieldset>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div style="text-align:center" class="col-md-8">
+                            <label for="">Entreno(dias por semana)</label>
+                            <!-- radio -->
+                            <div class="form-group clearfix">
+                                <div class="icheck-primary d-inline">
+                                    <input id="menosde1dia" value="Menos de 1 dia" name="entrenamiento" type="radio" />
+                                    <label for="menosde1dia"> Menos de 1 dia</label>
+                                </div>
+                                <div class="icheck-primary d-inline">
+                                    <input type="radio" id="entre1y3dias" value="Entre 1 y 3 dias" name="entrenamiento" />
+                                    <label for="entre1y3dias"> Entre 1 y 3 dias</label>
+                                </div>
+                                <div class="icheck-primary d-inline">
+                                    <input id="entre3y5dias" value="Entre 3 y 5 dias" name="entrenamiento" type="radio" />
+                                    <label for="entre3y5dias"> Entre 3 y 5 dias</label>
+                                </div>
+                                <div class="icheck-primary d-inline">
+                                    <input type="radio" id="entre5y10dias" value="Entre 5 y 10 dias" name="entrenamiento" />
+                                    <label for="entre5y10dias"> Entre 5 y 10 dias</label>
+                                </div>
+                                <div class="icheck-primary d-inline">
+                                    <input id="masde10dias" value="Mas de 10 dias" name="entrenamiento" type="radio" />
+                                    <label for="masde10dias"> Mas de 10 dias</label>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group form-float ">
+                                        <div class="form-line">
+                                            <input type="text" id="num" class="form-control" name="sesiones">
+                                            <label class="form-label" style="font-size: x-small;">Núm de sesiones /semana</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div style="text-align:center" class="col-md-6">
+                            <label for="">Horas de entrenamiento por sesion</label>
+                            <!-- radio -->
+                            <div class="form-group clearfix">
+                                <div class="icheck-primary d-inline">
+                                    <input id="1y2horas" value="1 y 2 horas" name="por_sesion" type="radio" />
+                                    <label for="1y2horas">1 y 2 horas</label>
+                                </div>
+                                <div class="icheck-primary d-inline">
+                                    <input type="radio" id="2y4horas" value="2 y 4 horas" name="por_sesion" />
+                                    <label for="2y4horas">2 y 4 horas</label>
+                                </div>
+                                <div class="icheck-primary d-inline">
+                                    <input id="4y6horas" value="4 y 6 horas" name="por_sesion" type="radio" />
+                                    <label for="4y6horas">4 y 6 horas</label>
+                                </div>
+                                <div class="icheck-primary d-inline">
+                                    <input type="radio" id="masde6" value="Mas de 6 horas" name="por_sesion" />
+                                    <label for="masde6"> Mas de 6 horas </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div style="text-align:center" class="col-md-12">
+                            <label for="">Modalidad de entrenamiento</label>
+                            <!-- radio -->
+                            <div class="form-group clearfix">
+                                <div class="icheck-primary d-inline">
+                                    <input id="sinentrenador" value="Sin entrenador" name="modalidad_entrenamiento" type="radio" />
+                                    <label for="sinentrenador"> Sin Entrenador</label>
+                                </div>
+                                <div class="icheck-primary d-inline">
+                                    <input type="radio" id="soloyentrenador" value="Solo y / o con entrenador" name="modalidad_entrenamiento" />
+                                    <label for="soloyentrenador"> Solo y/o con entrenador</label>
+                                </div>
+                                <div class="icheck-primary d-inline">
+                                    <input id="conentrenador" value="Con entrenador" name="modalidad_entrenamiento" type="radio" />
+                                    <label for="conentrenador"> Con entrenador</label>
+                                </div>
+                                <div class="icheck-primary d-inline">
+                                    <input type="radio" id="cmentre" value="Con mas de un entrenador" name="modalidad_entrenamiento" />
+                                    <label for="cmentre"> Con mas de un entrenador</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div style="text-align:center" class="col-md-6">
+                            <label for="">Cuento con un plan de entrenamiento que:</label>
+                            <!-- radio -->
+                            <div class="form-group clearfix">
+                                <div class="icheck-primary d-inline">
+                                    <input id="cons" value="Conozco y sigo" name="plan" type="radio" />
+                                    <label for="cons">Conozco y sigo</label>
+                                </div>
+                                <div class="icheck-primary d-inline">
+                                    <input type="radio" id="consns" value="Conozco,Pero no sigo" name="plan" />
+                                    <label for="consns">Conozco,pero no sigo</label>
+                                </div>
+                                <div class="icheck-primary d-inline">
+                                    <input id="nocns" value="No Conozco" name="plan" type="radio" />
+                                    <label for="nocns"> No Conozco</label>
+                                </div>
+                                <div class="icheck-primary d-inline">
+                                    <input type="radio" id="ntengo" value="No Tengo" name="plan" />
+                                    <label for="ntengo">No Tengo</label>
+                                </div>
+                                <div class="icheck-primary d-inline">
+                                    <input id="diseñado" value="Diseñado Por mi " name="plan" type="radio" />
+                                    <label for="diseñado">Diseñado por mi</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row col-md-6">
+                        <div style="text-align:center" class="col-md-8">
+                            <label for="">Sus actividades se adaptan a sus horararios y sesiones de entrenamiento</label>
+                            <!-- radio -->
+                            <div class="form-group clearfix">
+                                <div class="icheck-primary d-inline">
+                                    <input id="btn_actividades_Si" value="Si" name="acti" type="radio" />
+                                    <label for="btn_actividades_Si">Si</label>
+                                </div>
+                                <div class="icheck-primary d-inline">
+                                    <input type="radio" id="btn_medianamente" value="Medianamente" name="acti" />
+                                    <label for="btn_medianamente">Medianamente</label>
+                                </div>
+                                <div class="icheck-primary d-inline">
+                                    <input id="btn_actividades_No" value="No" name="acti" type="radio" />
+                                    <label for="btn_actividades_No">No</label>
+                                </div>
+                                <div id="medipor" style="display:none;">
+                                    <div class="col-md-12">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" id="pxq" class="form-control" name="mediporque">
+                                                <label class="form-label">¿Porque?</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="no_porque" style="display:none;">
+                                    <div class="col-md-12">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" id="asd" class="form-control" name="no_porque">
+                                                <label class="form-label">¿Porque?</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row col-md-12">
+                        <div style="text-align:center" class="col-md-6">
+                            <label for="">Su sitio de entrenamiento es:</label>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="sitio">
+                                    <label class="form-label">Los sitios donde entrena</label>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="col-md-2 centrar">
+                            <!-- checkbox -->
+                            <div class="form-group clearfix form-line">
+                                <div class="icheck-primary d-inline">
+                                    <input id="btn_inadecuado" value="inadecuado" name="inad" type="checkbox" onchange="javascript:mostrarcontenido(this.id,txt_inadecuado)" />
+                                    <label for="btn_inadecuado">Inadecuado</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 centrar" id="txt_inadecuado" style="display:none;text-align:center">
+                            <label for=""></label>
+                            <label for=""></label>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" id="inadec" class="form-control" name="inadec">
+                                    <label class="form-label">¿Porque es inadecuado?</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col-md-12">
+                    <div class="col-sm-6">                        
+                        <div class="col-md-12 ">
+                            <label>1) Situacion Academica </label><br>
+                            <span><small><strong>a.Estudia Actualmente</strong></small></span>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input id="rdsi_Estudia" value="Si" name="Est" type="radio" />
+                                <label for="rdsi_Estudia"> Si</label><br>
+                                <input type="radio" id="rdno_Estudia" value="No" name="Est" />
+                                <label for="rdno_Estudia"> No</label><br>
+                                <input type="radio" id="rdnose_Estudia" value="Nunca ha estudiado" name="Est" />
+                                <label for="rdnose_Estudia"> Nunca ha estudiado</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label>2) Ultimo nivel academico terminado</label>
+                        </div>
+                        <div class="col-md-12">
+                            <input id="primaria" value="Primaria" name="nivelaca" type="radio" />
+                            <label for="primaria"> Primaria</label><br>
+                            <input type="radio" id="bachillerato" value="Bachillerato" name="nivelaca" />
+                            <label for="bachillerato"> Bachillerato</label><br>
+                            <input type="radio" id="tecnico" value="Tecnico-Tecnologico" name="nivelaca" />
+                            <label for="tecnico">Tecnico-Tecnologico</label><br>
+                            <input id="universitario" value="Universitario" name="nivelaca" type="radio" />
+                            <label for="universitario"> Universitario</label><br>
+                            <input id="especializacion" value="Especializacion/Maestria" name="nivelaca" type="radio" />
+                            <label for="especializacion"> Especializacion/Maestria</label><br>
+                            <div class="col-md-12" id="especializaciont" style="display:none;">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="especializacion_maestria">
+                                        <label class="form-label">Especificar</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="txt_donde_Estudia" id="dndes">
+                                        <label class="form-label">¿Donde Estudia?</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <h4 class="card-inside-title">Lugar de habitacion</h4>
+                        <div class="col-md-12">
+                            <label>a)Cómo calificaría su barrio</label>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input id="b" class="filled-in" value="Bueno" name="barrio" type="radio" />
+                                <label for="b"> Bueno</label><br>
+                                <input type="radio" class="filled-in" id="r" value="Regular" name="barrio" />
+                                <label for="r"> Regular</label><br>
+                                <input type="radio" class="filled-in" id="ba" value="Bajo" name="barrio" />
+                                <label for="ba">Bajo</label><br>
+                                <input id="ha" value="Ha tenido abandonos frecuentes" class="filled-in" name="barrio" type="radio" />
+                                <label for="ha"> Ha tenido abandonos frecuentes</label><br>
+                                <input id="ot" value="Otros" class="filled-in" name="barrio" type="radio" onchange="javascript:mostrarcontenido(this.id,otrosbarrios1)" />
+                                <label for="ot"> Otros</label><br>
+                                <div class="col-md-12" id="otrosbarrios1" style="display:none;">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" name="txtotrosbarrios">
+                                            <label class="form-label">Especificar</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label>b)Como describiria el estado de la vivienda en que reside actualmente</label>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input id="b1" value="Bueno" name="vivienda" type="radio" />
+                                <label for="b1"> Bueno</label><br>
+                                <input type="radio" id="r2" value="Regular" name="vivienda" />
+                                <label for="r2"> Regular</label><br>
+                                <input type="radio" id="ba1" value="Mal Estado" name="vivienda" />
+                                <label for="ba1">Mal Estado</label><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col-md-12">
+                    <h4 class="card-inside-title">
+                        Habitos
+                    </h4>
+                    <div class="row col-md-12">
+                        <div class="col-md-4">
+                            <div class="col-md-12 m-b-20">
+                                <label>¿Usted Fuma?</label>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <input type="radio" id="rdsi_fuma" value="Si" name="fuma" />
+                                        <label for="rdsi_fuma"> Si</label>
+                                        <div class="row col-md-12" id="si_cigarros" style="display:none;">
+                                            <label style="font-size: small;"> Cuantos Cigarrillos al dia</label>
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control" name="si_fuma">
+                                                    <label class="form-label">Especificar</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <input type="radio" id="rdno_fuma" value="No" name="fuma" />
+                                        <label for="rdno_fuma"> No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12 m-b-20">
+                                <label>¿Usted toma?</label>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <input type="radio" id="rdsi_toma" value="Si" name="toma" />
+                                        <label for="rdsi_toma"> Si</label>
+                                        <div class="col-md-12" id="si_toma" style="display:none;">
+                                            <div class="form-group form-float">
+                                                <label> Cantidad semanal</label>
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control" name="cerveza">
+                                                    <label class="form-label">cervezas</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control" name="licor">
+                                                    <label class="form-label">licor</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <input type="radio" id="rdno_toma" value="No" name="toma" />
+                                        <label for="rdno_toma"> No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col-md-12">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="btn-group" role="group">
+                            <button type="reset" class="btn btn-danger btn-rounded"><i class="fa fa-times"></i> Cancelar</button>
+                            <button type="submit" class="btn btn-primary btn-rounded"><i class="fa fa-save"></i> Guardar</button>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <!-- /.card -->
     </div>
     <!-- /.card -->
 </div>
