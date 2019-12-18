@@ -31,6 +31,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     @* Renderizado de secciones de Estilo*@
     @RenderSection("Listar_Atletas_Css", required: false)
+    @RenderSection("Crear_Atleta_Css", required: false)
     @RenderSection("Crear_Historial_Medico_Css", required: false)
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -123,7 +124,8 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-                        <li class="nav-item has-treeview @Html.ActiveLi("Home", "ViewAdministrador")"> <!-- Para Abrir el menu Agregar cada ruta de acceso Pendiente-->
+                        <li class="nav-item has-treeview @Html.ActiveLi("Home", "ViewAdministrador")">
+                            <!-- Para Abrir el menu Agregar cada ruta de acceso Pendiente-->
                             <a href="#" class="nav-link @Html.ActivePage("Home", "ViewAdministrador")">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
@@ -140,9 +142,11 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item has-treeview @Html.ActiveLi("Atleta", "Index")"> <!-- Para Abrir el menu Agregar cada ruta de acceso Pendiente-->
-                            <a href="#" class="nav-link @Html.ActivePage("Atleta", "Index")">
-                                <i class="nav-icon fas fa-window-restore"></i>
+                        <li class="nav-item has-treeview @Html.ActiveLi("Atleta", "Index") @Html.ActiveLi("Atleta", "Crear")">
+                            <!-- Para Abrir el menu Agregar cada ruta de acceso Pendiente-->
+                            <a href="#" class="nav-link @Html.ActivePage("Atleta", "Index") @Html.ActivePage("Atleta", "Crear")">
+                                @*<i class="nav-icon fas fa-window-restore"></i>*@
+                                <i class="nav-icon fas fa-running"></i>
                                 <p>
                                     Atletas
                                     <i class="right fas fa-angle-left"></i>
@@ -150,7 +154,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item ">
-                                    <a href="@Url.Action("", "")" class="nav-link ">
+                                    <a href="@Url.Action("Crear", "Atleta")" class="nav-link @Html.ActivePage("Atleta", "Crear")">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Crear</p>
                                     </a>
@@ -253,5 +257,6 @@
     <script src="~/Scripts/demo.js"></script>
     @* Renderizado de secciones de Script*@
     @RenderSection("Crear_Historial_Medico_Script", required: false)
+    @RenderSection("Crear_Atleta_Script", required: false)
 </body>
 </html>

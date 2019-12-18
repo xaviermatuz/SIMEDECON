@@ -8,6 +8,8 @@
         <mvcSiteMapNode title="Crear Historial Medico" controller="HistorialMedico" action="Crear" preservedRouteParameters="id">          
         </mvcSiteMapNode>
       </mvcSiteMapNode>
+      <mvcSiteMapNode title="Crear Atleta" controller="Atleta" action="Crear">
+      </mvcSiteMapNode>
   </mvcSiteMapNode>
   
 </mvcSiteMap>

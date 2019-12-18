@@ -268,6 +268,9 @@
     <Compile Include="Models\Educacion.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Equipo_Deportivo.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Evento.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -325,6 +328,7 @@
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModel\Actualizar.cs" />
+    <Compile Include="Models\ViewModel\AtletaView.cs" />
     <Compile Include="Models\ViewModel\ExamenFisicoViewModel.cs" />
     <Compile Include="Models\ViewModel\LoginViewModel.cs" />
     <Compile Include="Models\ViewModel\MostrarViewModel.cs" />
@@ -478,7 +482,9 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\CatDeportAtle.js" />
     <Content Include="Scripts\Chart.min.js" />
+    <Content Include="Scripts\CreateAtle.js" />
     <Content Include="Scripts\dashboard.js" />
     <Content Include="Scripts\daterangepicker.js" />
     <Content Include="Scripts\demo.js" />
@@ -711,6 +717,9 @@
     <Content Include="web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Views\Atleta\_Category.cshtml" />
+    <Content Include="Views\Atleta\Crear.cshtml" />
+    <Content Include="Views\Atleta\Actualizar.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

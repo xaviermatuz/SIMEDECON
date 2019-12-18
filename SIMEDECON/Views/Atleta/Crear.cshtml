@@ -1,0 +1,283 @@
+﻿@model SIMEDECON.Models.ViewModel.AtletaView
+@using SIMEDECON.Models;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Crear Nuevo Atleta";
+}
+
+@section Crear_Atleta_Css
+{
+    <link href="~/Recursos/plugins/dropify/dist/css/dropify.min.css" rel="stylesheet" />
+    <!-- Bootstrap Select Css -->
+    <link href="~/Recursos/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+    <link href="~/Recursos/css/notificacion.css" rel="stylesheet" />
+}
+<a id="UrlGetMunicipiosPorDpto" href="@Url.Action("GetMunicipiosPorDpto","Atleta")" hidden></a>
+<a id="UrlGetCategoriaDeporte" href="@Url.Action("GetCategoriaDeporte","Atleta")" hidden></a>
+<a id="UrlAddCategoryToAthlete" href="@Url.Action("AddCategoryToAthlete","Atleta")" hidden></a>
+
+@using (Html.BeginForm("Crear", "Atleta", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="card card-secondary card-tabs">
+        <div class="card-header p-0 pt-1">
+            <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="custom-tabs-one-messages-tab" data-toggle="pill" href="#custom-tabs-one-messages" role="tab" aria-controls="custom-tabs-one-messages" aria-selected="false">Messages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#custom-tabs-one-settings" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">Settings</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <div class="tab-content" id="custom-tabs-one-tabContent">
+                <div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada lacus ullamcorper dui molestie, sit amet congue quam finibus. Etiam ultricies nunc non magna feugiat commodo. Etiam odio magna, mollis auctor felis vitae, ullamcorper ornare ligula. Proin pellentesque tincidunt nisi, vitae ullamcorper felis aliquam id. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin id orci eu lectus blandit suscipit. Phasellus porta, ante et varius ornare, sem enim sollicitudin eros, at commodo leo est vitae lacus. Etiam ut porta sem. Proin porttitor porta nisl, id tempor risus rhoncus quis. In in quam a nibh cursus pulvinar non consequat neque. Mauris lacus elit, condimentum ac condimentum at, semper vitae lectus. Cras lacinia erat eget sapien porta consectetur.
+                </div>
+                <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
+                    Mauris tincidunt mi at erat gravida, eget tristique urna bibendum. Mauris pharetra purus ut ligula tempor, et vulputate metus facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas sollicitudin, nisi a luctus interdum, nisl ligula placerat mi, quis posuere purus ligula eu lectus. Donec nunc tellus, elementum sit amet ultricies at, posuere nec nunc. Nunc euismod pellentesque diam.
+                </div>
+                <div class="tab-pane fade" id="custom-tabs-one-messages" role="tabpanel" aria-labelledby="custom-tabs-one-messages-tab">
+                    Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare magna.
+                </div>
+                <div class="tab-pane fade" id="custom-tabs-one-settings" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
+                    Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis.
+                </div>
+            </div>
+        </div>
+        <!-- /.card -->
+    </div>
+
+}
+
+@section Crear_Atleta_Script
+{
+    <script src="~/Recursos/plugins/dropify/dist/js/dropify.min.js"></script>
+    <script src="~/Recursos/plugins/bootstrap-notify/bootstrap-notify.js"></script>
+    <script src="~/Recursos/js/notificacion.js"></script>
+    <script src="@Url.Content("~/Scripts/CreateAtle.js")"></script>
+    <script src="@Url.Content("~/Scripts/CatDeportAtle.js")"></script>
+
+
+    <!--Modal Hospital-->
+    <script>
+        $(document).ready(function () {
+            // Basic
+            $('.dropify').dropify();
+
+            // Translated
+            $('.dropify-fr').dropify({
+                messages: {
+                    default: 'Glissez-déposez un fichier ici ou cliquez',
+                    replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                    remove: 'Supprimer',
+                    error: 'Désolé, le fichier trop volumineux'
+                }
+            });
+
+            // Used events
+            var drEvent = $('#input-file-events').dropify();
+
+            drEvent.on('dropify.beforeClear', function (event, element) {
+                return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+            });
+
+            drEvent.on('dropify.afterClear', function (event, element) {
+                alert('File deleted');
+            });
+
+            drEvent.on('dropify.errors', function (event, element) {
+                console.log('Has Errors');
+            });
+
+            var drDestroy = $('#input-file-to-destroy').dropify();
+            drDestroy = drDestroy.data('dropify')
+            $('#toggleDropify').on('click', function (e) {
+                e.preventDefault();
+                if (drDestroy.isDropified()) {
+                    drDestroy.destroy();
+                } else {
+                    drDestroy.init();
+                }
+            })
+        });
+    </script>
+    <!--Hacer visible/invisible Div Genero-->
+    <script type="text/javascript">
+        $(function () {
+            $('#Model_Genero').on('change', generoFunc);
+        });
+
+        function generoFunc() {
+            var value = $(this).val();
+            if (value == "Femenino") {
+                $("#dvembarazo").show();
+            }
+            else {
+                $("#dvembarazo").hide();
+            }
+
+        }
+    </script>
+
+    @*---------------------*@
+    <script type="text/javascript">
+        // Solo permite ingresar numeros.
+        function soloNumeros(e) {
+            var key = window.Event ? e.which : e.keyCode
+            return (key >= 48 && key <= 57)
+        }
+    </script>
+
+    <!--Hacer visible/invisible Div Hospital-->
+    <script>
+        $(document).ready(function () {
+            $("#radio16").click(function () {
+                $("#hosp").hide();
+            });
+            $("#radio17").click(function () {
+                $("#hosp").show();
+            });
+        });
+    </script>
+    <!--Hacer visible/invisible Div relainadecuada-->
+    <script>
+        $(document).ready(function () {
+            $("#radio23").click(function () {
+                $("#relaentre").hide();
+            });
+            $("#radio24").click(function () {
+                $("#relaentre").hide();
+            });
+            $("#radio25").click(function () {
+                $("#relaentre").show();
+            });
+        });
+    </script>
+    <!--Hacer visible/invisible Div relainadecuada-->
+    <script>
+        $(document).ready(function () {
+            $("#radio26").click(function () {
+                $("#relacompa").hide();
+            });
+            $("#radio27").click(function () {
+                $("#relacompa").hide();
+            });
+            $("#radio28").click(function () {
+                $("#relacompa").show();
+            });
+        });
+    </script>
+    <!--Select Dinamico Deporte y Categoria-->
+    <script type="text/javascript">
+        $(function () {
+            $('#select-deporte').on('change', categoriaSelec);
+        });
+
+        function categoriaSelec() {
+            var Id_deporte = $(this).val();
+            //Ajax
+            $.get('/api/categoria/' + Id_deporte + '/categoria', function (data) {
+                var html_select = '<option value="" disable>==Seleccione una Categoria==</option>';
+                for (var i = 0; i < data.length; ++i) {
+                    html_select += '<option value="' + data[i].id + '">' + data[i].categoria + '</option>';
+                }
+                $('#select-categoria').html(html_select);
+            });
+
+        }
+    </script>
+    <!--Select Dinamico Departamento y Muncipio-->
+    <script type="text/javascript">
+        $(function () {
+            $('#select-departamento').on('change', municipioSelec);
+        });
+
+        function municipioSelec() {
+            var Id_departamento = $(this).val();
+            //Ajax
+            $.get('/api/municipio/' + Id_departamento + '/municipio', function (data) {
+                var html_select = '<option value="" disable>Seleccione un Municipio</option>';
+                for (var i = 0; i < data.length; ++i) {
+                    html_select += '<option value="' + data[i].ID + '">' + data[i].Nombre + '</option>';
+                }
+                $('#select-municipio').html(html_select);
+            });
+
+        }
+    </script>
+    <!--Form Hospital-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //cuando hagamos submit al formulario con id id_del_formulario
+            //se procesara este script javascript
+            $("#form_hospital").submit(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: $(this).attr("action"),//action del formulario, ej:
+                    //http://localhost/mi_proyecto/mi_controlador/mi_funcion
+                    type: $(this).attr("method"),//el método post o get del formulario
+                    data: $(this).serialize(),//obtenemos todos los datos del formulario
+                    error: function () {
+                        console.log("");
+                    },
+                    success: function (data) {
+                        console.log("guardado Correctamente");
+                        $("#responsive-modalH").modal('hide');
+                        toastr.success("Hospital Guardado Correctamente");
+                    }
+                });
+            });
+        });
+    </script>
+    <!--Form Categoria-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //cuando hagamos submit al formulario con id id_del_formulario
+            //se procesara este script javascript
+            $("#form_Categoria").submit(function (e) {
+                selector = $("#select-deporte-categoria").val();
+                nombre = $("#categoria_nombre").val();
+                e.preventDefault();
+                // console.log(nombre);
+                if (nombre === "" || nombre === " ") {
+                    if (selector == 0) {
+                        alert("no ha seleccionado un deporte");
+                    }
+                    $("#div_texto").addClass("focused error");
+                }
+                else {
+                    $.ajax({
+                        url: $(this).attr("action"),//action del formulario, ej:
+                        //http://localhost/mi_proyecto/mi_controlador/mi_funcion
+                        type: $(this).attr("method"),//el método post o get del formulario
+                        data: $(this).serialize(),//obtenemos todos los datos del formulario
+                        error: function () {
+                            console.log(this.responseText);
+                        },
+                        success: function (data) {
+                            //console.log(data);
+                            $("#responsive-modal").modal('hide');
+                            $('#form_Categoria').trigger("reset");
+                            $("#categoria_nombre").blur();
+
+                            //document.getElementById("#form_Categoria").reset();
+                            MostrarNotificacion("Succes", "Categoria Guardada Correctamente", data.categoria, "../images/check.png");
+
+
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}

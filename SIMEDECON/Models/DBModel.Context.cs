@@ -18,6 +18,7 @@ namespace SIMEDECON.Models
         public MeSysEntities()
             : base("name=MeSysEntities")
         {
+            this.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -59,5 +60,6 @@ namespace SIMEDECON.Models
         public virtual DbSet<Notas_Evaluacion> Notas_Evaluacion { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Situacion_Laboral> Situacion_Laboral { get; set; }
+        public virtual DbSet<Equipo_Deportivo> Equipo_Deportivo { get; set; }
     }
 }

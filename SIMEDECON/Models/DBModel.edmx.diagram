@@ -67,6 +67,8 @@
         <AssociationConnector Association="MeSysModel.FK_Situacion_Laboral_Datos_Atleta" ManuallyRouted="false" />
         <AssociationConnector Association="MeSysModel.FK_Municipio_Departamentos" ManuallyRouted="false" />
         <AssociationConnector Association="MeSysModel.FK_Examen_Fisico_Principal_Examen_Fisico" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MeSysModel.Equipo_Deportivo" Width="1.5" PointX="7.5" PointY="6.125" />
+        <AssociationConnector Association="MeSysModel.FK_Equipo_Deportivo_Datos_Atleta" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

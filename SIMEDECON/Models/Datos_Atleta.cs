@@ -38,6 +38,7 @@ namespace SIMEDECON.Models
             this.Medicamentos = new HashSet<Medicamento>();
             this.Notas_Evaluacion = new HashSet<Notas_Evaluacion>();
             this.Situacion_Laboral = new HashSet<Situacion_Laboral>();
+            this.Equipo_Deportivo = new HashSet<Equipo_Deportivo>();
         }
     
         public int ID { get; set; }
@@ -112,5 +113,7 @@ namespace SIMEDECON.Models
         public virtual ICollection<Notas_Evaluacion> Notas_Evaluacion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Situacion_Laboral> Situacion_Laboral { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Equipo_Deportivo> Equipo_Deportivo { get; set; }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MeSysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MeSysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Alergias">
           <Key>
             <PropertyRef Name="ID" />
@@ -207,6 +207,19 @@
           <Property Name="Fecha_de_Registro" Type="date" />
           <Property Name="Fecha_de_Actualizacion" Type="date" />
           <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="Equipo_Deportivo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Atleta" Type="int" Nullable="false" />
+          <Property Name="equipdep" Type="varchar" MaxLength="50" />
+          <Property Name="relaentre" Type="varchar" MaxLength="50" />
+          <Property Name="relacompa" Type="varchar" MaxLength="50" />
+          <Property Name="ra_ina_entre" Type="varchar" MaxLength="200" />
+          <Property Name="ra_ina_compa" Type="varchar" MaxLength="200" />
+          <Property Name="Activo" Type="bit" />
         </EntityType>
         <EntityType Name="Eventos">
           <Key>
@@ -636,6 +649,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Equipo_Deportivo_Datos_Atleta">
+          <End Role="Datos_Atleta" Type="Self.Datos_Atleta" Multiplicity="1" />
+          <End Role="Equipo_Deportivo" Type="Self.Equipo_Deportivo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Datos_Atleta">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Equipo_Deportivo">
+              <PropertyRef Name="ID_Atleta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Examen_Fisico_Principal_Datos_Atleta">
           <End Role="Datos_Atleta" Type="Self.Datos_Atleta" Multiplicity="1" />
           <End Role="Examen_Fisico_Principal" Type="Self.Examen_Fisico_Principal" Multiplicity="*" />
@@ -819,6 +844,7 @@
           <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Deporte" EntityType="Self.Deporte" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Educacion" EntityType="Self.Educacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Equipo_Deportivo" EntityType="Self.Equipo_Deportivo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Eventos" EntityType="Self.Eventos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Examen_Fisico" EntityType="Self.Examen_Fisico" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Examen_Fisico_Principal" EntityType="Self.Examen_Fisico_Principal" Schema="dbo" store:Type="Tables" />
@@ -901,6 +927,10 @@
             <End Role="Datos_Atleta" EntitySet="Datos_Atleta" />
             <End Role="Educacion" EntitySet="Educacion" />
           </AssociationSet>
+          <AssociationSet Name="FK_Equipo_Deportivo_Datos_Atleta" Association="Self.FK_Equipo_Deportivo_Datos_Atleta">
+            <End Role="Datos_Atleta" EntitySet="Datos_Atleta" />
+            <End Role="Equipo_Deportivo" EntitySet="Equipo_Deportivo" />
+          </AssociationSet>
           <AssociationSet Name="FK_Examen_Fisico_Principal_Datos_Atleta" Association="Self.FK_Examen_Fisico_Principal_Datos_Atleta">
             <End Role="Datos_Atleta" EntitySet="Datos_Atleta" />
             <End Role="Examen_Fisico_Principal" EntitySet="Examen_Fisico_Principal" />
@@ -950,8 +980,7 @@
             <End Role="Situacion_Laboral" EntitySet="Situacion_Laboral" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MeSysModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1168,6 +1197,7 @@
           <NavigationProperty Name="Medicamentos" Relationship="Self.FK_Medicamentos_Datos_Atleta" FromRole="Datos_Atleta" ToRole="Medicamentos" />
           <NavigationProperty Name="Notas_Evaluacion" Relationship="Self.FK_Notas_Evaluacion_Datos_Atleta" FromRole="Datos_Atleta" ToRole="Notas_Evaluacion" />
           <NavigationProperty Name="Situacion_Laboral" Relationship="Self.FK_Situacion_Laboral_Datos_Atleta" FromRole="Datos_Atleta" ToRole="Situacion_Laboral" />
+          <NavigationProperty Name="Equipo_Deportivo" Relationship="MeSysModel.FK_Equipo_Deportivo_Datos_Atleta" FromRole="Datos_Atleta" ToRole="Equipo_Deportivo" />
         </EntityType>
         <EntityType Name="Departamento">
           <Key>
@@ -1955,7 +1985,38 @@
             <End Role="Examen_Fisico" EntitySet="Examen_Fisico" />
             <End Role="Examen_Fisico_Principal" EntitySet="Examen_Fisico_Principal" />
           </AssociationSet>
+          <EntitySet Name="Equipo_Deportivo" EntityType="MeSysModel.Equipo_Deportivo" />
+          <AssociationSet Name="FK_Equipo_Deportivo_Datos_Atleta" Association="MeSysModel.FK_Equipo_Deportivo_Datos_Atleta">
+            <End Role="Datos_Atleta" EntitySet="Datos_Atleta" />
+            <End Role="Equipo_Deportivo" EntitySet="Equipo_Deportivo" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Equipo_Deportivo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Atleta" Type="Int32" Nullable="false" />
+          <Property Name="equipdep" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="relaentre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="relacompa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ra_ina_entre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ra_ina_compa" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="Datos_Atleta" Relationship="MeSysModel.FK_Equipo_Deportivo_Datos_Atleta" FromRole="Equipo_Deportivo" ToRole="Datos_Atleta" />
+        </EntityType>
+        <Association Name="FK_Equipo_Deportivo_Datos_Atleta">
+          <End Type="MeSysModel.Datos_Atleta" Role="Datos_Atleta" Multiplicity="1" />
+          <End Type="MeSysModel.Equipo_Deportivo" Role="Equipo_Deportivo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Datos_Atleta">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Equipo_Deportivo">
+              <PropertyRef Name="ID_Atleta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2404,6 +2465,20 @@
                 <ScalarProperty Name="Fecha_de_Registro" ColumnName="Fecha_de_Registro" />
                 <ScalarProperty Name="Fecha_de_Actualizacion" ColumnName="Fecha_de_Actualizacion" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equipo_Deportivo">
+            <EntityTypeMapping TypeName="MeSysModel.Equipo_Deportivo">
+              <MappingFragment StoreEntitySet="Equipo_Deportivo">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="ra_ina_compa" ColumnName="ra_ina_compa" />
+                <ScalarProperty Name="ra_ina_entre" ColumnName="ra_ina_entre" />
+                <ScalarProperty Name="relacompa" ColumnName="relacompa" />
+                <ScalarProperty Name="relaentre" ColumnName="relaentre" />
+                <ScalarProperty Name="equipdep" ColumnName="equipdep" />
+                <ScalarProperty Name="ID_Atleta" ColumnName="ID_Atleta" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
