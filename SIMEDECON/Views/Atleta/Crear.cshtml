@@ -8,10 +8,10 @@
 
 @section Crear_Atleta_Css
 {
-    <link href="~/Recursos/plugins/dropify/dist/css/dropify.min.css" rel="stylesheet" />
+    <link href="~/Content/dropify.min.css" rel="stylesheet" />
     <!-- Bootstrap Select Css -->
-    <link href="~/Recursos/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
-    <link href="~/Recursos/css/notificacion.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-select.css" rel="stylesheet" />
+    @*<link href="~/Recursos/css/notificacion.css" rel="stylesheet" />*@
 }
 <a id="UrlGetMunicipiosPorDpto" href="@Url.Action("GetMunicipiosPorDpto","Atleta")" hidden></a>
 <a id="UrlGetCategoriaDeporte" href="@Url.Action("GetCategoriaDeporte","Atleta")" hidden></a>
@@ -21,49 +21,136 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="card card-secondary card-tabs">
-        <div class="card-header p-0 pt-1">
-            <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="custom-tabs-one-messages-tab" data-toggle="pill" href="#custom-tabs-one-messages" role="tab" aria-controls="custom-tabs-one-messages" aria-selected="false">Messages</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#custom-tabs-one-settings" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">Settings</a>
-                </li>
-            </ul>
-        </div>
-        <div class="card-body">
-            <div class="tab-content" id="custom-tabs-one-tabContent">
-                <div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada lacus ullamcorper dui molestie, sit amet congue quam finibus. Etiam ultricies nunc non magna feugiat commodo. Etiam odio magna, mollis auctor felis vitae, ullamcorper ornare ligula. Proin pellentesque tincidunt nisi, vitae ullamcorper felis aliquam id. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin id orci eu lectus blandit suscipit. Phasellus porta, ante et varius ornare, sem enim sollicitudin eros, at commodo leo est vitae lacus. Etiam ut porta sem. Proin porttitor porta nisl, id tempor risus rhoncus quis. In in quam a nibh cursus pulvinar non consequat neque. Mauris lacus elit, condimentum ac condimentum at, semper vitae lectus. Cras lacinia erat eget sapien porta consectetur.
-                </div>
-                <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
-                    Mauris tincidunt mi at erat gravida, eget tristique urna bibendum. Mauris pharetra purus ut ligula tempor, et vulputate metus facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas sollicitudin, nisi a luctus interdum, nisl ligula placerat mi, quis posuere purus ligula eu lectus. Donec nunc tellus, elementum sit amet ultricies at, posuere nec nunc. Nunc euismod pellentesque diam.
-                </div>
-                <div class="tab-pane fade" id="custom-tabs-one-messages" role="tabpanel" aria-labelledby="custom-tabs-one-messages-tab">
-                    Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare magna.
-                </div>
-                <div class="tab-pane fade" id="custom-tabs-one-settings" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
-                    Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis.
-                </div>
+<div class="card card-secondary card-tabs">
+    <div class="card-header p-0 pt-1">
+        <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="custom-tabs-one-datos-generales-tab" data-toggle="pill" href="#custom-tabs-one-datos-generales" role="tab" aria-controls="custom-tabs-one-datos-generales" aria-selected="true">Datos Generales</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="custom-tabs-one-dirrecion-y-correo-tab" data-toggle="pill" href="#custom-tabs-one-dirrecion-y-correo" role="tab" aria-controls="custom-tabs-one-dirrecion-y-correo" aria-selected="false">Dirrecion y Correo</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="custom-tabs-one-deporte-Y-categoria-tab" data-toggle="pill" href="#custom-tabs-one-deporte-y-categoria" role="tab" aria-controls="custom-tabs-one-deporte-y-categoria" aria-selected="false">Deporte y Categoria</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="custom-tabs-one-datos-extras-tab" data-toggle="pill" href="#custom-tabs-one-datos-extras" role="tab" aria-controls="custom-tabs-one-datos-extras" aria-selected="false">Datos Extras</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <div class="tab-content" id="custom-tabs-one-tabContent">
+            <div class="tab-pane fade show active" id="custom-tabs-one-datos-generales" role="tabpanel" aria-labelledby="custom-tabs-one-datos-generales-tab">
+                <fieldset>
+                    <div class="row">
+                        <!-- Foto -->
+                        <div class="col-md-4">
+                            <div class="form-group col-md-12">
+                                <div style="text-align:center" class="col-md-12">
+                                    <label>Seleccione una fotografia</label>
+                                </div>
+                                @Html.TextBoxFor(modelo => modelo.ImageFile, new { type = "file", @class = "dropify", @onchange = "previewFile(500,0.1)" })
+                            </div>
+                        </div>
+                        <!-- Datos Iniciales -->
+                        <div style="text-align:center" class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group form-float ">
+                                        <div class="form-line">
+                                            @Html.EditorFor(model => model.Model.Primer_Nombre, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: capitalize;" } })
+                                            <label class="form-label">Primer Nombre</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            @Html.EditorFor(model => model.Model.Segundo_Nombre, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: capitalize;" } })
+                                            <label class="form-label">Segundo Nombre</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            @Html.EditorFor(model => model.Model.Primer_Apellido, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: capitalize;" } })
+                                            <label class="form-label">Primer Apellido</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group form-float ">
+                                        <div class="form-line">
+                                            @Html.EditorFor(model => model.Model.Segundo_Apellido, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: capitalize;" } })
+                                            <label class="form-label">Segundo Apellido</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            @Html.EditorFor(model => model.Model.Edad, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "return soloNumeros(event)", @maxlength = "3", @type = "text" } })
+                                            <label class="form-label">Edad</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            @Html.EditorFor(model => model.Model.Numero_De_Cedula, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: capitalize;", @minlength = "16", @maxlength = "16" } })
+                                            <label class="form-label">Numero de Cedula</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        @Html.DropDownListFor(model => model.Model.Genero, (IEnumerable<SelectListItem>)ViewBag.Genero, "Seleccione Genero", new { @class = "form-control" })
+                                    </div>
+                                    <label>Genero</label>
+                                </div>
+                                <div class="col-md-6" id="dvembarazo" style="display:none;">
+                                    <label>¿Esta embarazada?</label>
+                                    <br>
+                                    <div class="form-group">
+                                        @Html.RadioButtonFor(m => m.Model.Embarazo, "No", new { id = "radio_1" })
+                                        @Html.Label("radio_1", "No")
+
+                                        @Html.RadioButtonFor(m => m.Model.Embarazo, "Si", new { id = "radio_2" })
+                                        @Html.Label("radio_2", "Si")
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="tab-pane fade" id="custom-tabs-one-dirrecion-y-correo" role="tabpanel" aria-labelledby="custom-tabs-one-dirrecion-y-correo-tab">
+                DC
+            </div>
+            <div class="tab-pane fade" id="custom-tabs-one-deporte-y-categoria" role="tabpanel" aria-labelledby="custom-tabs-one-deporte-Y-categoria-tab">
+                DC
+            </div>
+            <div class="tab-pane fade" id="custom-tabs-one-datos-extras" role="tabpanel" aria-labelledby="custom-tabs-one-datos-extras-tab">
+                DE
             </div>
         </div>
-        <!-- /.card -->
     </div>
+    <!-- /.card -->
+    <div class="card-footer">
+        <button type="submit" class="btn btn-info">Sign in</button>
+        <button type="submit" class="btn btn-default float-right">Cancel</button>
+    </div>
+    <!-- /.card-footer -->
+</div>
 
 }
 
 @section Crear_Atleta_Script
-{
-    <script src="~/Recursos/plugins/dropify/dist/js/dropify.min.js"></script>
-    <script src="~/Recursos/plugins/bootstrap-notify/bootstrap-notify.js"></script>
-    <script src="~/Recursos/js/notificacion.js"></script>
+{    
+    <script src="~/Scripts/dropify.min.js"></script>
+    @*<script src="~/Recursos/plugins/bootstrap-notify/bootstrap-notify.js"></script>*@
+    @*<script src="~/Recursos/js/notificacion.js"></script>*@
     <script src="@Url.Content("~/Scripts/CreateAtle.js")"></script>
     <script src="@Url.Content("~/Scripts/CatDeportAtle.js")"></script>
 

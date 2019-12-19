@@ -343,10 +343,12 @@
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-select.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CardAtletas.css" />
     <Content Include="Content\daterangepicker.css" />
+    <Content Include="Content\dropify.min.css" />
     <Content Include="Content\Estilo.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\icheck-bootstrap.min.css" />
@@ -357,6 +359,7 @@
     <Content Include="Content\tempusdominus-bootstrap-4.min.css" />
     <Content Include="Content\util.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\dropify.svg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\OFL.txt" />
     <Content Include="Global.asax" />
@@ -529,6 +532,7 @@
     <Content Include="fonts\poppins\Poppins-SemiBoldItalic.ttf" />
     <Content Include="fonts\poppins\Poppins-Thin.ttf" />
     <Content Include="fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="Scripts\dropify.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -648,6 +652,9 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="fonts\dropify.eot" />
+    <Content Include="fonts\dropify.ttf" />
+    <Content Include="fonts\dropify.woff" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
