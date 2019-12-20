@@ -381,6 +381,8 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Paginas_HTTP\404.aspx" />
+    <Content Include="Paginas_HTTP\404.html" />
     <Content Include="Perfiles\AlbertoAlberto mendieta.JPG" />
     <Content Include="Perfiles\AlisonAlisson Ortega.JPG" />
     <Content Include="Perfiles\alysAlys Cruz.JPG" />

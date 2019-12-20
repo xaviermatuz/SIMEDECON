@@ -110,14 +110,20 @@
                                     <label>Genero</label>
                                 </div>
                                 <div class="col-md-6" id="dvembarazo" style="display:none;">
-                                    <label>¿Esta embarazada?</label>
-                                    <br>
-                                    <div class="form-group">
-                                        @Html.RadioButtonFor(m => m.Model.Embarazo, "No", new { id = "radio_1" })
-                                        @Html.Label("radio_1", "No")
-
-                                        @Html.RadioButtonFor(m => m.Model.Embarazo, "Si", new { id = "radio_2" })
-                                        @Html.Label("radio_2", "Si")
+                                    <div style="text-align:center">
+                                        <label>¿Esta embarazada?</label>
+                                    </div>
+                                    <!-- radio -->
+                                    <div class="form-group clearfix">
+                                        <div class="icheck-primary d-inline">
+                                            @Html.RadioButtonFor(m => m.Model.Embarazo, "Si", new { id = "radio_2" })
+                                            @Html.Label("radio_2", "Si")
+                                        </div>
+                                        <!-- radio -->
+                                        <div class="icheck-primary d-inline">
+                                            @Html.RadioButtonFor(m => m.Model.Embarazo, "No", new { id = "radio_1" })
+                                            @Html.Label("radio_1", "No")
+                                        </div>
                                     </div>
                                 </div>
                             </div>                            
@@ -126,10 +132,176 @@
                 </fieldset>
             </div>
             <div class="tab-pane fade" id="custom-tabs-one-dirrecion-y-correo" role="tabpanel" aria-labelledby="custom-tabs-one-dirrecion-y-correo-tab">
-                DC
+                <fieldset>
+                    <div style="text-align:center" class="row col-md-12 ">
+                        <div class="col-md-4">
+                            <div class="form-group form-float ">
+                                <div class="form-line">
+                                    @Html.EditorFor(model => model.Model.Correo_Electronico, new { htmlAttributes = new { @class = "form-control" } })
+                                    <label class="form-label">Correo Electronico</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    @Html.EditorFor(model => model.Model.Telefono_Celular, new { htmlAttributes = new { @class = "form-control", @minlength = "8", @maxlength = "8", @onKeyPress = "return soloNumeros(event)" } })
+                                    <label class="form-label">Telefono Celular</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    @Html.EditorFor(model => model.Model.Telefono_Convencional, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "return soloNumeros(event)", @minlength = "8", @maxlength = "8" } })
+                                    <label class="form-label">Telefono Convencional</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    @Html.EditorFor(model => model.Model.Dirreccion, new { htmlAttributes = new { @class = "form-control", @style = "text-transform: capitalize;" } })
+                                    <label class="form-label">Direccion</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                @Html.DropDownList("DdlDepto", (SelectList)ViewBag.ListaDepartamentos, "Seleccione un departemento", new { @class = "form-control" })
+                                @Html.Label("Departamento")
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                @Html.DropDownListFor(model => model.Model.Municipio, (SelectList)ViewBag.ListaMunicipios, "Seleccione un Municipio", new { @class = "form-control", @id = "Municipio" })
+                                @Html.Label("Municipio")
+                            </div>
+                        </div>
+                        <div class="row col-md-12">
+                            <div class="col-md-4">
+                                <label>¿Tiene Seguro?</label>
+                                <!-- radio -->
+                                <div class="form-group clearfix">
+                                    <div class="icheck-primary d-inline">
+                                        @Html.RadioButtonFor(m => m.Model.Tiene_Seguro, "Si", new { id = "radio17" })
+                                        @Html.Label("radio17", "Si")
+                                    </div>
+                                    <!-- radio -->
+                                    <div class="icheck-primary d-inline">
+                                        @Html.RadioButtonFor(m => m.Model.Tiene_Seguro, "No", new { id = "radio16" })
+                                        @Html.Label("radio16", "No")
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4" id="hosp" style="display:none;">
+                                <div class="form-group">
+                                    @Html.DropDownListFor(x => x.Model.Hospital, SIMEDECON.Controllers.AtletaController.GetDropDown(), new { @class = "form-control" })
+                                    @Html.Label("Hospital")
+                                </div>
+                            </div>
+                            <div class="col-md-4" id="hosp">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#responsive-modalH" class="model_img img-responsive"> Crear Hospital</button>
+                            </div>                            
+                        </div>
+                    </div>
+                </fieldset>
             </div>
             <div class="tab-pane fade" id="custom-tabs-one-deporte-y-categoria" role="tabpanel" aria-labelledby="custom-tabs-one-deporte-Y-categoria-tab">
-                DC
+                <fieldset>
+                    <div class="row col-md-12">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                @Html.Label("Deporte")
+                                <br />
+                                @Html.DropDownList("DlDeport", (SelectList)ViewBag.ListaDeportes, "Seleccione un Deporte", new { @class = "form-control p-0" })
+                            </div>
+                            <div>
+                                <span>¿Su categoría no aparece en la lista?</span>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#responsive-modal" class="model_img img-responsive"> Crear Categoría</button>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                @Html.Label("Categoria Por Deporte")
+                                <br />
+                                @Html.DropDownList("DdlCategoria", Enumerable.Empty<SelectListItem>(), "Seleccione una Categoria", new { @class = "form-control" })
+                            </div>
+                            <button type="button" class="btn btn-primary" class="model_img img-responsive" onclick="AsociarCategoriaConAtleta()">Agregar categoría</button>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                @Html.Label("Categorias seleccionadas")
+                                <ul id="CategoriasSeleccionadas" class="list-group"></ul>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div>
+                                <label>Equipamiento Deportivo</label><br>
+                                @Html.RadioButtonFor(m => m.equip.equipdep, "Cuenta Con Todo El Equipamiento", new { id = "radio20" })
+                                @Html.Label("radio20", "Cuenta Con Todo El Equipamiento")
+
+                                @Html.RadioButtonFor(m => m.equip.equipdep, "Cuenta Con Algun Equipamiento Necesario", new { id = "radio21" })
+                                @Html.Label("radio21", "Cuenta Con Algun Equipamiento Necesario")
+
+                                @Html.RadioButtonFor(m => m.equip.equipdep, "No Cuenta Con Equipamiento Alguno", new { id = "radio22" })
+                                @Html.Label("radio22", "No Cuenta Con Equipamiento Alguno")
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div>
+                                        <label>Relaciones En El Entorno De Entrenamiento Y Competencia</label><br>
+                                        <label>Con El Entrenador</label><br>
+                                        @Html.RadioButtonFor(m => m.equip.relaentre, "Optimas", new { id = "radio23" })
+                                        @Html.Label("radio23", "Optimas")
+
+                                        @Html.RadioButtonFor(m => m.equip.relaentre, "Adecuadas", new { id = "radio24" })
+                                        @Html.Label("radio24", "Adecuadas")
+
+                                        @Html.RadioButtonFor(m => m.equip.relaentre, "Inadecuadas", new { id = "radio25" })
+                                        @Html.Label("radio25", "Inadecuadas")
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4" id="relaentre" style="display:none">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label>Razon de las relaciones inadecuadas</label><br>
+                                        @Html.EditorFor(model => model.equip.ra_ina_entre, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div>
+                                        <label>Relaciones En El Entorno De Entrenamiento Y Competencia</label><br>
+                                        <label>Con Los Compañeros</label><br>
+                                        @Html.RadioButtonFor(m => m.equip.relacompa, "Optimas", new { id = "radio26" })
+                                        @Html.Label("radio26", "Optimas")
+
+                                        @Html.RadioButtonFor(m => m.equip.relacompa, "Adecuadas", new { id = "radio27" })
+                                        @Html.Label("radio27", "Adecuadas")
+
+                                        @Html.RadioButtonFor(m => m.equip.relacompa, "Inadecuadas", new { id = "radio28" })
+                                        @Html.Label("radio28", "Inadecuadas")
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4" id="relacompa" style="display:none">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label>Razon de las relaciones inadecuadas</label><br>
+                                        @Html.EditorFor(model => model.equip.ra_ina_compa, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
             </div>
             <div class="tab-pane fade" id="custom-tabs-one-datos-extras" role="tabpanel" aria-labelledby="custom-tabs-one-datos-extras-tab">
                 DE
