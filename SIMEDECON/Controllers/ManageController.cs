@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SIMEDECON.Models;
@@ -17,15 +19,17 @@ namespace SIMEDECON.Controllers
         private ApplicationDbContext context = new ApplicationDbContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationRoleManager _roleManager;
 
         public ManageController()
         {
         }
 
-        public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager,ApplicationRoleManager roleManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            RoleManager = roleManager;
         }
 
         public ApplicationSignInManager SignInManager
@@ -37,6 +41,17 @@ namespace SIMEDECON.Controllers
             private set 
             { 
                 _signInManager = value; 
+            }
+        }
+        public ApplicationRoleManager RoleManager
+        {
+            get
+            {
+                return _roleManager ?? HttpContext.GetOwinContext().Get<ApplicationRoleManager>();
+            }
+            private set 
+            {
+                _roleManager = value; 
             }
         }
 
@@ -214,110 +229,108 @@ namespace SIMEDECON.Controllers
             }
             return RedirectToAction("Index", new { Message = ManageMessageId.RemovePhoneSuccess });
         }
-        //borrar si no funciona
+        //Nuevos Usuarios
+        public ActionResult NewUser()
+        {
+            List<SelectListItem> list = new List<SelectListItem>();
+            foreach (var role in RoleManager.Roles)
+            {
+                list.Add(new SelectListItem() { Value=role.Name,Text=role.Name });
+            }
+            ViewBag.roles = list;
+            return View(); 
+        }
+        [HttpPost]
+        public async Task<ActionResult> NewUser(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
+                var result = await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    result = await UserManager.AddToRoleAsync(user.Id,model.RoleName);
+                    //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                    // Para obtener más información sobre cómo habilitar la confirmación de cuentas y el restablecimiento de contraseña, visite https://go.microsoft.com/fwlink/?LinkID=320771
+                    // Enviar correo electrónico con este vínculo
+                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    // await UserManager.SendEmailAsync(user.Id, "Confirmar cuenta", "Para confirmar la cuenta, haga clic <a href=\"" + callbackUrl + "\">aquí</a>");
+
+                    return Redirect("~/Home/ViewAdministrador");
+                }
+                AddErrors(result);
+            }
+
+            // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
+            return View(model);
+        }
         //editar usuarios
         [HttpGet]
         public ActionResult EditUser(string ID)
         {
+
+            //
+            
+            //
             ApplicationUser appUser = new ApplicationUser();
             // appUser = UserManager.FindByIdAsync(ID);
             var user = context.Users.Where(u => u.Id == ID).FirstOrDefault();
             ChangePasswordViewModel User = new ChangePasswordViewModel();
             User.UserName = user.UserName;
             User.Email = user.Email;
+            User.ID = user.Id;
+            List<SelectListItem> list = new List<SelectListItem>();
+            foreach (var role in RoleManager.Roles)
+            {
+                list.Add(new SelectListItem() {
+                    Value = role.Name,
+                    Text = role.Name
+                });
+            }
+            ViewBag.roles = list;
             return View( User);
+            //using (var context = new ApplicationDbContext())
+            //{
+            //    var sql = @"
+            //SELECT AspNetUsers.UserName,AspNetUsers.Id,AspNetUsers.Email, AspNetRoles.Name As Role
+            //FROM AspNetUsers 
+            //LEFT JOIN AspNetUserRoles ON  AspNetUserRoles.UserId = AspNetUsers.Id 
+            //LEFT JOIN AspNetRoles ON AspNetRoles.Id = AspNetUserRoles.RoleId";
+            //    //WHERE AspNetUsers.Id = @Id";
+            //    //var idParam = new SqlParameter("Id", theUserId);
+
+            //    var result = context.Database.SqlQuery<UserWithRolViewModel>(sql).ToList();
+            //    return View(result);
+            //}
         }
         [HttpPost]
         public async Task<ActionResult> EditUser(ChangePasswordViewModel model)
         {
-
+           
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
             var context = new Models.ApplicationDbContext();
-            var user = context.Users.Where(u => u.Id == model.ID).FirstOrDefault();
-            //context.Entry(appuser).State = EntityState.Modified;
+            ApplicationUser user = await UserManager.FindByIdAsync(model.ID);
             user.Email = model.Email;
             user.UserName = model.UserName;
-           // user.PasswordHash = model.NewPassword;
-            context.SaveChanges();
-            var result = await UserManager.ChangePasswordAsync(model.ID, model.OldPassword, model.NewPassword);
+            user.PasswordHash = UserManager.PasswordHasher.HashPassword(model.NewPassword);
+            var result = await  UserManager.UpdateAsync(user);
             if (result.Succeeded)
             {
-                var BT = await UserManager.FindByIdAsync(model.ID);
-                if (BT != null)
-                {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                }
                 return Redirect("~/Home/ViewAdministrador");
-                /*
-                 * 
-                 * redireccionar si esta correcto
-                 */
-            }
-            AddErrors(result);
-            //var user = context.Users.Where(u => u.Id == id.ToString()).FirstOrDefault();
-            /*
-             *redireccionar si esta mal
-             *
-             */
-            return Redirect("~/");
-
-        }
-        //
-        // GET: /Manage/ChangePassword
-        public ActionResult ChangePassword()
-        {
-            return View();
-        }
-
-        //
-        // POST: /Manage/ChangePassword
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ChangePassword(ChangePasswordViewModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-            var result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
-            bool ban= CambioEmailUserName(model);
-            if (result.Succeeded && ban)
-            {
-                var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-                if (user != null)
-                {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                }
-                return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
             }
             AddErrors(result);
             return View(model);
+           
+
         }
-        //
-        //cambiar correo y contraseña
-        public bool CambioEmailUserName(ChangePasswordViewModel model)
-        {
-            bool bandera = false;
-            var l = User.Identity.GetUserId();
-            AspNetUser user = db.AspNetUsers.FirstOrDefault(s => s.Id == User.Identity.GetUserId().ToString());
-            user.Email = model.Email;
-            user.UserName = model.UserName;
-            db.Entry(user).State = System.Data.Entity.EntityState.Modified;
-            db.SaveChanges();
-            if (db.SaveChanges() > 0)
-            {
-                bandera = true;
-            }
-            else
-            {
-                bandera = false;
-            }
-            return bandera;
-        }
-        //
+
+
+        
         // GET: /Manage/SetPassword
         public ActionResult SetPassword()
         {

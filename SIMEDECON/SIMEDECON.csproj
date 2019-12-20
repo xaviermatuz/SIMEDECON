@@ -328,7 +328,7 @@
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>MeSys.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UserEdit.cs" />
+    <Compile Include="Models\UserWithRolViewModel.cs" />
     <Compile Include="Models\Usuario.cs">
       <DependentUpon>MeSys.tt</DependentUpon>
     </Compile>
@@ -651,6 +651,7 @@
     <Content Include="Views\Home\ViewAdministrador.cshtml" />
     <Content Include="Views\Home\ViewMedico.cshtml" />
     <Content Include="Views\Manage\EditUser.cshtml" />
+    <Content Include="Views\Manage\NewUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

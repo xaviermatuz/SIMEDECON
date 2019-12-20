@@ -15,9 +15,22 @@ namespace SIMEDECON.Controllers
         [Authorize(Roles ="Administrador")]
         public ActionResult ViewAdministrador()
         {
-            IEnumerable<AspNetUser> User = db.AspNetUsers;
-            ViewBag.Usuario = User;
-            return View();
+            //IEnumerable<AspNetUser> User = db.AspNetUsers;
+            //ViewBag.Usuario = User;
+            //return View();
+            using (var context = new ApplicationDbContext())
+            {
+                var sql = @"
+            SELECT AspNetUsers.UserName,AspNetUsers.Id,AspNetUsers.Email, AspNetRoles.Name As Role
+            FROM AspNetUsers 
+            LEFT JOIN AspNetUserRoles ON  AspNetUserRoles.UserId = AspNetUsers.Id 
+            LEFT JOIN AspNetRoles ON AspNetRoles.Id = AspNetUserRoles.RoleId";
+                //WHERE AspNetUsers.Id = @Id";
+                //var idParam = new SqlParameter("Id", theUserId);
+
+                var result = context.Database.SqlQuery<UserWithRolViewModel>(sql).ToList();
+                return View(result);
+            }
         }
         [Authorize(Roles = "Medico,Administrador")]
         public ActionResult ViewMedico()

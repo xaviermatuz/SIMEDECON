@@ -50,10 +50,7 @@ namespace SIMEDECON.Models
         [DataType(DataType.EmailAddress)]
         [Display(Name = "Correo")]
         public string Email { get; set; }
-        [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "Contraseña actual")]
-        public string OldPassword { get; set; }
+        
 
         [Required]
         [StringLength(100, ErrorMessage = "{0} debe tener al menos {2} caracteres de longitud.", MinimumLength = 6)]
@@ -65,6 +62,7 @@ namespace SIMEDECON.Models
         [Display(Name = "Confirme la contraseña nueva")]
         [Compare("NewPassword", ErrorMessage = "La contraseña nueva y la contraseña de confirmación no coinciden.")]
         public string ConfirmPassword { get; set; }
+        public string Role { get; set; }
     }
 
     public class AddPhoneNumberViewModel
