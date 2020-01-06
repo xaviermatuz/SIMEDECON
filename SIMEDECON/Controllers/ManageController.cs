@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -270,12 +271,7 @@ namespace SIMEDECON.Controllers
         [HttpGet]
         public ActionResult EditUser(string ID)
         {
-
-            //
-            
-            //
             ApplicationUser appUser = new ApplicationUser();
-            // appUser = UserManager.FindByIdAsync(ID);
             var user = context.Users.Where(u => u.Id == ID).FirstOrDefault();
             ChangePasswordViewModel User = new ChangePasswordViewModel();
             User.UserName = user.UserName;
@@ -289,21 +285,15 @@ namespace SIMEDECON.Controllers
                     Text = role.Name
                 });
             }
+            //rol
+            var oldUser = UserManager.FindById(ID);
+            var oldRoleId = oldUser.Roles.SingleOrDefault().RoleId;
+            var oldRoleName = db.AspNetRoles.SingleOrDefault(r => r.Id == oldRoleId).Name;
+            User.RoleName = oldRoleName;
+
             ViewBag.roles = list;
             return View( User);
-            //using (var context = new ApplicationDbContext())
-            //{
-            //    var sql = @"
-            //SELECT AspNetUsers.UserName,AspNetUsers.Id,AspNetUsers.Email, AspNetRoles.Name As Role
-            //FROM AspNetUsers 
-            //LEFT JOIN AspNetUserRoles ON  AspNetUserRoles.UserId = AspNetUsers.Id 
-            //LEFT JOIN AspNetRoles ON AspNetRoles.Id = AspNetUserRoles.RoleId";
-            //    //WHERE AspNetUsers.Id = @Id";
-            //    //var idParam = new SqlParameter("Id", theUserId);
-
-            //    var result = context.Database.SqlQuery<UserWithRolViewModel>(sql).ToList();
-            //    return View(result);
-            //}
+          
         }
         [HttpPost]
         public async Task<ActionResult> EditUser(ChangePasswordViewModel model)
@@ -317,11 +307,32 @@ namespace SIMEDECON.Controllers
             ApplicationUser user = await UserManager.FindByIdAsync(model.ID);
             user.Email = model.Email;
             user.UserName = model.UserName;
-            user.PasswordHash = UserManager.PasswordHasher.HashPassword(model.NewPassword);
+            if (model.NewPassword != "")
+            {
+                user.PasswordHash = UserManager.PasswordHasher.HashPassword(model.NewPassword);
+            }
             var result = await  UserManager.UpdateAsync(user);
             if (result.Succeeded)
             {
-                return Redirect("~/Home/ViewAdministrador");
+                // THIS LINE IS IMPORTANT
+                var oldUser = UserManager.FindById(model.ID);
+                var oldRoleId = oldUser.Roles.SingleOrDefault().RoleId;
+                //Console.WriteLine(oldUser +"el rol es " + oldRoleId );
+                var oldRoleName = db.AspNetRoles.SingleOrDefault(r => r.Id == oldRoleId).Name;
+
+                if (oldRoleName != null)
+                {
+                    UserManager.RemoveFromRole(user.Id, oldRoleName);
+                    var result2 = await UserManager.AddToRoleAsync(user.Id, model.RoleName);
+                    if (result2.Succeeded)
+                    {
+                        return Redirect("~/Home/ViewAdministrador");
+                    }
+                }
+                
+
+                //return RedirectToAction(MVC.User.Index());
+               
             }
             AddErrors(result);
             return View(model);

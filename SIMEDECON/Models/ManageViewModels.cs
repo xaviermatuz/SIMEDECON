@@ -62,7 +62,8 @@ namespace SIMEDECON.Models
         [Display(Name = "Confirme la contraseña nueva")]
         [Compare("NewPassword", ErrorMessage = "La contraseña nueva y la contraseña de confirmación no coinciden.")]
         public string ConfirmPassword { get; set; }
-        public string Role { get; set; }
+        public string RoleName { get; set; }
+        public string MyAssignedToValue { get; set; }
     }
 
     public class AddPhoneNumberViewModel
