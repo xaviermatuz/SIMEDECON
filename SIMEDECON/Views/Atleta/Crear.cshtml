@@ -168,7 +168,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                @Html.DropDownList("DdlDepto", (SelectList)ViewBag.ListaDepartamentos, "Seleccione un departemento", new { @class = "form-control" })
+                                @Html.DropDownList("DdlDepto", (SelectList)ViewBag.ListaDepartamentos, "Seleccione un Departemento", new { @class = "form-control" })
                                 @Html.Label("Departamento")
                             </div>
                         </div>
@@ -209,25 +209,24 @@
             </div>
             <div class="tab-pane fade" id="custom-tabs-one-deporte-y-categoria" role="tabpanel" aria-labelledby="custom-tabs-one-deporte-Y-categoria-tab">
                 <fieldset>
-                    <div class="row col-md-12">
-                        <div class="col-md-3">
+                    <div style="text-align:center" class="row col-md-12">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 @Html.Label("Deporte")
-                                <br />
                                 @Html.DropDownList("DlDeport", (SelectList)ViewBag.ListaDeportes, "Seleccione un Deporte", new { @class = "form-control p-0" })
                             </div>
                             <div>
-                                <span>¿Su categoría no aparece en la lista?</span>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#responsive-modal" class="model_img img-responsive"> Crear Categoría</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#responsive-modal"> Crear Categoría</button>
+                                <br />
+                                <strong><span>¿Su Categoría no aparece en la lista?</span></strong>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
                                 @Html.Label("Categoria Por Deporte")
-                                <br />
                                 @Html.DropDownList("DdlCategoria", Enumerable.Empty<SelectListItem>(), "Seleccione una Categoria", new { @class = "form-control" })
                             </div>
-                            <button type="button" class="btn btn-primary" class="model_img img-responsive" onclick="AsociarCategoriaConAtleta()">Agregar categoría</button>
+                            <button type="button" class="btn btn-primary" onclick="AsociarCategoriaConAtleta()">Agregar categoría</button>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
@@ -235,68 +234,85 @@
                                 <ul id="CategoriasSeleccionadas" class="list-group"></ul>
                             </div>
                         </div>
+                        <br />
                         <div class="col-md-12">
-                            <div>
-                                <label>Equipamiento Deportivo</label><br>
-                                @Html.RadioButtonFor(m => m.equip.equipdep, "Cuenta Con Todo El Equipamiento", new { id = "radio20" })
-                                @Html.Label("radio20", "Cuenta Con Todo El Equipamiento")
-
-                                @Html.RadioButtonFor(m => m.equip.equipdep, "Cuenta Con Algun Equipamiento Necesario", new { id = "radio21" })
-                                @Html.Label("radio21", "Cuenta Con Algun Equipamiento Necesario")
-
-                                @Html.RadioButtonFor(m => m.equip.equipdep, "No Cuenta Con Equipamiento Alguno", new { id = "radio22" })
-                                @Html.Label("radio22", "No Cuenta Con Equipamiento Alguno")
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div>
-                                        <label>Relaciones En El Entorno De Entrenamiento Y Competencia</label><br>
-                                        <label>Con El Entrenador</label><br>
-                                        @Html.RadioButtonFor(m => m.equip.relaentre, "Optimas", new { id = "radio23" })
-                                        @Html.Label("radio23", "Optimas")
-
-                                        @Html.RadioButtonFor(m => m.equip.relaentre, "Adecuadas", new { id = "radio24" })
-                                        @Html.Label("radio24", "Adecuadas")
-
-                                        @Html.RadioButtonFor(m => m.equip.relaentre, "Inadecuadas", new { id = "radio25" })
-                                        @Html.Label("radio25", "Inadecuadas")
+                            <label>Equipamiento Deportivo</label>
+                            <div class="col-md-12">
+                                <!-- radio -->
+                                <div class="form-group clearfix">
+                                    <div class="icheck-primary d-inline">
+                                        @Html.RadioButtonFor(m => m.equip.equipdep, "Cuenta Con Todo El Equipamiento", new { id = "radio20" })
+                                        @Html.Label("radio20", "Cuenta Con Todo El Equipamiento")
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4" id="relaentre" style="display:none">
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <label>Razon de las relaciones inadecuadas</label><br>
-                                        @Html.EditorFor(model => model.equip.ra_ina_entre, new { htmlAttributes = new { @class = "form-control" } })
+                                    <!-- radio -->
+                                    <div class="icheck-primary d-inline">
+                                        @Html.RadioButtonFor(m => m.equip.equipdep, "Cuenta Con Algun Equipamiento Necesario", new { id = "radio21" })
+                                        @Html.Label("radio21", "Cuenta Con Algun Equipamiento Necesario")
+                                    </div>
+                                    <!-- radio -->
+                                    <div class="icheck-primary d-inline">
+                                        @Html.RadioButtonFor(m => m.equip.equipdep, "No Cuenta Con Equipamiento Alguno", new { id = "radio22" })
+                                        @Html.Label("radio22", "No Cuenta Con Equipamiento Alguno")
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div>
-                                        <label>Relaciones En El Entorno De Entrenamiento Y Competencia</label><br>
-                                        <label>Con Los Compañeros</label><br>
-                                        @Html.RadioButtonFor(m => m.equip.relacompa, "Optimas", new { id = "radio26" })
-                                        @Html.Label("radio26", "Optimas")
-
-                                        @Html.RadioButtonFor(m => m.equip.relacompa, "Adecuadas", new { id = "radio27" })
-                                        @Html.Label("radio27", "Adecuadas")
-
-                                        @Html.RadioButtonFor(m => m.equip.relacompa, "Inadecuadas", new { id = "radio28" })
-                                        @Html.Label("radio28", "Inadecuadas")
-                                    </div>
+                            <label>Relaciones En El Entorno De Entrenamiento Y Competencia</label><br />
+                        </div>
+                        <div class="col-md-6">
+                            <label>Con El Entrenador</label>
+                            <!-- radio -->
+                            <div class="form-group clearfix">
+                                <div class="icheck-primary d-inline">
+                                    @Html.RadioButtonFor(m => m.equip.relaentre, "Optimas", new { id = "radio23" })
+                                    @Html.Label("radio23", "Optimas")
+                                </div>
+                                <!-- radio -->
+                                <div class="icheck-primary d-inline">
+                                    @Html.RadioButtonFor(m => m.equip.relaentre, "Adecuadas", new { id = "radio24" })
+                                    @Html.Label("radio24", "Adecuadas")
+                                </div>
+                                <!-- radio -->
+                                <div class="icheck-primary d-inline">
+                                    @Html.RadioButtonFor(m => m.equip.relaentre, "Inadecuadas", new { id = "radio25" })
+                                    @Html.Label("radio25", "Inadecuadas")
                                 </div>
                             </div>
-                            <div class="col-md-4" id="relacompa" style="display:none">
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <label>Razon de las relaciones inadecuadas</label><br>
-                                        @Html.EditorFor(model => model.equip.ra_ina_compa, new { htmlAttributes = new { @class = "form-control" } })
-                                    </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Con Los Compañeros</label>
+                            <!-- radio -->
+                            <div class="form-group clearfix">
+                                <div class="icheck-primary d-inline">
+                                    @Html.RadioButtonFor(m => m.equip.relacompa, "Optimas", new { id = "radio26" })
+                                    @Html.Label("radio26", "Optimas")
+                                </div>
+                                <!-- radio -->
+                                <div class="icheck-primary d-inline">
+                                    @Html.RadioButtonFor(m => m.equip.relacompa, "Adecuadas", new { id = "radio27" })
+                                    @Html.Label("radio27", "Adecuadas")
+                                </div>
+                                <!-- radio -->
+                                <div class="icheck-primary d-inline">
+                                    @Html.RadioButtonFor(m => m.equip.relacompa, "Inadecuadas", new { id = "radio28" })
+                                    @Html.Label("radio28", "Inadecuadas")
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6" id="relaentre" style="display:none;text-align:center">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <label>Razon de las relaciones inadecuadas</label><br>
+                                    @Html.EditorFor(model => model.equip.ra_ina_entre, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6" id="relacompa" style="display:none;text-align:center">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <label>Razon de las relaciones inadecuadas</label><br>
+                                    @Html.EditorFor(model => model.equip.ra_ina_compa, new { htmlAttributes = new { @class = "form-control" } })
                                 </div>
                             </div>
                         </div>
@@ -304,7 +320,318 @@
                 </fieldset>
             </div>
             <div class="tab-pane fade" id="custom-tabs-one-datos-extras" role="tabpanel" aria-labelledby="custom-tabs-one-datos-extras-tab">
-                DE
+                <fieldset>
+                    <div style="text-align:center" class="row col-md-12">                        
+                        <div class="col-md-12">
+                            <h4 class="card-inside-title">Informacion Familiar</h4>
+                            <div class="col-md-6">
+                                <label>1)Con quien vive</label>
+                            </div>
+                            <div class="col-md-6">
+                                <!-- checkbox -->
+                                <div class="form-group clearfix">
+                                    <div class="icheck-primary d-inline">
+                                        <input type="checkbox" id="soltero" name="CQVS" value="Soltero(a)" />
+                                        <label for="soltero">Soltero(a)</label>
+                                    </div>
+                                    <!-- checkbox -->
+                                    <div class="icheck-primary d-inline">
+                                        <input type="checkbox" id="acompañado" name="CQVA" value="Acompañado" />
+                                        <label for="acompañado">Acompañado</label>
+                                    </div>
+                                    <!-- checkbox -->
+                                    <div class="icheck-primary d-inline">
+                                        <input type="checkbox" id="Padre_2" name="CQVPA" value="Padre" />
+                                        <label for="Padre_2">Padre</label>
+                                    </div>
+                                    <!-- checkbox -->
+                                    <div class="icheck-primary d-inline">
+                                        <input type="checkbox" id="Madre_2" name="CQVMA" value="Madre" />
+                                        <label for="Madre_2">Madre</label>
+                                    </div>
+                                    <!-- checkbox -->
+                                    <div class="icheck-primary d-inline">
+                                        <input type="checkbox" id="Hermanos" name="CQVHE" value="Hermanos" onchange="javascript:mostrarcontenido(this.id,hermano)" />
+                                        <label for="Hermanos">Hermanos</label>
+                                    </div>
+                                    <div class="col-md-12" id="hermano" style="display:none;">
+                                        <div class="form-group from-float">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="txt_Chermanos">
+                                                <label class="form-label">Cuantos Hermanos</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- checkbox -->
+                                    <div class="icheck-primary d-inline">
+                                        <input type="checkbox" id="Hijos" class="filled-in" name="CQVHI" value="Hijos" onchange="javascript:mostrarcontenido(this.id,hijo)" />
+                                        <label for="Hijos">Hijos</label>
+                                    </div>
+                                    <div class="col-md-12" id="hijo" style="display:none;">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="txt_cHijos">
+                                                <label class="form-label">Cuantos hijos</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- checkbox -->
+                                    <div class="icheck-primary d-inline">
+                                        <input type="checkbox" id="otrossfamiliares" class="filled-in" name="CQVOF" value="Otros Familiares" onchange="javascript:mostrarcontenido(this.id,otrosfamiliare)" />
+                                        <label for="otrossfamiliares">Otros Familiares</label>
+                                    </div>
+                                    <div class="col-md-12" id="otrosfamiliare" style="display:none;">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="txt_Qfamiliar">
+                                                <label class="form-label">Que familiaress</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="demo-checkbox">                                    
+                                    
+                                    
+                                    
+                                    
+                                    <input type="checkbox" id="Otros_info" class="filled-in" name="CQVO" value="Otros" onchange="javascript:mostrarcontenido(this.id,otros_a)" />
+                                    <label for="Otros_info">Otros</label>
+                                    <div class="col-md-12" id="otros_a" style="display:none;">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="txt_Qotros">
+                                                <label class="form-label">Que Otros</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" id="aldep" class="filled-in" name="CQVAD" value="Alojamiento Deportivo" />
+                                    <label for="aldep">Alojamiento Deportivo</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="row col-md-12">
+                                <div class="col-md-12">
+                                    <label>2)¿Tiene Hijos?</label>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input id="rdsi_hijos" value="Si" name="btnhijos" type="radio" />
+                                        <label for="rdsi_hijos"> Si</label>
+                                        <input type="radio" id="rdno_hijos" value="No" name="btnhijos" />
+                                        <label for="rdno_hijos"> No</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <label>3)    ¿Proyecta Tener Hijos?</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input id="rdsi_mhijos" value="Si" name="pmhijos" type="radio" />
+                                        <label for="rdsi_mhijos"> Si</label><br>
+                                        <input type="radio" id="rdno_mhijos" value="No" name="pmhijos" />
+                                        <label for="rdno_mhijos"> No</label><br>
+                                        <input type="radio" id="rdnose_mhijos" value="No se" name="pmhijos" />
+                                        <label for="rdnose_mhijos"> No se</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="col-md-12">
+                                <div class="col-md-12 m-b-20">
+                                    <label>4)Números de personas con las que Vive</label>
+                                </div>
+                                <div class="col-sm-12">
+                                    <input type="radio" id="menosde4" class="filled-in" name="numvive" value="4 o menos" onchange="javascript:mostrarcontenido(this.id,menosdecuatro)" />
+                                    <label for="menosde4">4 o menos</label><br>
+                                    <div class="col-md-12" id="menosdecuatro" style="display:none;">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="txt_menosde4">
+                                                <label class="form-label">Especificar</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="radio" id="4a7" class="filled-in" name="numvive" value="De 4 a 7" />
+                                    <label for="4a7">De 4 a 7</label><br>
+                                    <input type="radio" id="masde7" class="filled-in" name="numvive" value="Mas de 7" />
+                                    <label for="masde7">Mas de 7</label><br>
+                                    <input type="radio" id="compañerosdeportivo" class="filled-in" name="numvive" value="Con Compañeros en alojamiento deportivo" />
+                                    <label for="compañerosdeportivo">Con Compañeros en alojamiento deportivo</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row col-md-12">
+                            <div class="col-sm-6">
+                                <h4 class="card-inside-title">Educacion y Formacion</h4>
+                                <div class="col-md-12 ">
+                                    <label>1) Situacion Academica </label><br>
+                                    <span><small><strong>a.Estudia Actualmente</strong></small></span>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input id="rdsi_Estudia" value="Si" name="Est" type="radio" />
+                                        <label for="rdsi_Estudia"> Si</label><br>
+                                        <input type="radio" id="rdno_Estudia" value="No" name="Est" />
+                                        <label for="rdno_Estudia"> No</label><br>
+                                        <input type="radio" id="rdnose_Estudia" value="Nunca ha estudiado" name="Est" />
+                                        <label for="rdnose_Estudia"> Nunca ha estudiado</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label>2) Ultimo nivel academico terminado</label>
+                                </div>
+                                <div class="col-md-12">
+                                    <input id="primaria" value="Primaria" name="nivelaca" type="radio" />
+                                    <label for="primaria"> Primaria</label><br>
+                                    <input type="radio" id="bachillerato" value="Bachillerato" name="nivelaca" />
+                                    <label for="bachillerato"> Bachillerato</label><br>
+                                    <input type="radio" id="tecnico" value="Tecnico-Tecnologico" name="nivelaca" />
+                                    <label for="tecnico">Tecnico-Tecnologico</label><br>
+                                    <input id="universitario" value="Universitario" name="nivelaca" type="radio" />
+                                    <label for="universitario"> Universitario</label><br>
+                                    <input id="especializacion" value="Especializacion/Maestria" name="nivelaca" type="radio" />
+                                    <label for="especializacion"> Especializacion/Maestria</label><br>
+                                    <div class="col-md-12" id="especializaciont" style="display:none;">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="especializacion_maestria">
+                                                <label class="form-label">Especificar</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="txt_donde_Estudia" id="dndes">
+                                                <label class="form-label">¿Donde Estudia?</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <h4 class="card-inside-title">Lugar de habitacion</h4>
+                                <div class="col-md-12">
+                                    <label>a)Cómo calificaría su barrio</label>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input id="b" class="filled-in" value="Bueno" name="barrio" type="radio" />
+                                        <label for="b"> Bueno</label><br>
+                                        <input type="radio" class="filled-in" id="r" value="Regular" name="barrio" />
+                                        <label for="r"> Regular</label><br>
+                                        <input type="radio" class="filled-in" id="ba" value="Bajo" name="barrio" />
+                                        <label for="ba">Bajo</label><br>
+                                        <input id="ha" value="Ha tenido abandonos frecuentes" class="filled-in" name="barrio" type="radio" />
+                                        <label for="ha"> Ha tenido abandonos frecuentes</label><br>
+                                        <input id="ot" value="Otros" class="filled-in" name="barrio" type="radio" onchange="javascript:mostrarcontenido(this.id,otrosbarrios1)" />
+                                        <label for="ot"> Otros</label><br>
+                                        <div class="col-md-12" id="otrosbarrios1" style="display:none;">
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control" name="txtotrosbarrios">
+                                                    <label class="form-label">Especificar</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label>b)Como describiria el estado de la vivienda en que reside actualmente</label>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input id="b1" value="Bueno" name="vivienda" type="radio" />
+                                        <label for="b1"> Bueno</label><br>
+                                        <input type="radio" id="r2" value="Regular" name="vivienda" />
+                                        <label for="r2"> Regular</label><br>
+                                        <input type="radio" id="ba1" value="Mal Estado" name="vivienda" />
+                                        <label for="ba1">Mal Estado</label><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <h4 class="card-inside-title">
+                                Habitos
+                            </h4>
+                            <div class="row col-md-12">
+                                <div class="col-md-4">
+                                    <div class="col-md-12 m-b-20">
+                                        <label>¿Usted Fuma?</label>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <input type="radio" id="rdsi_fuma" value="Si" name="fuma" />
+                                                <label for="rdsi_fuma"> Si</label>
+                                                <div class="row col-md-12" id="si_cigarros" style="display:none;">
+                                                    <label style="font-size: small;"> Cuantos Cigarrillos al dia</label>
+                                                    <div class="form-group form-float">
+                                                        <div class="form-line">
+                                                            <input type="text" class="form-control" name="si_fuma">
+                                                            <label class="form-label">Especificar</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <input type="radio" id="rdno_fuma" value="No" name="fuma" />
+                                                <label for="rdno_fuma"> No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="col-md-12 m-b-20">
+                                        <label>¿Usted toma?</label>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <input type="radio" id="rdsi_toma" value="Si" name="toma" />
+                                                <label for="rdsi_toma"> Si</label>
+                                                <div class="col-md-12" id="si_toma" style="display:none;">
+                                                    <div class="form-group form-float">
+                                                        <label> Cantidad semanal</label>
+                                                        <div class="form-line">
+                                                            <input type="text" class="form-control" name="cerveza">
+                                                            <label class="form-label">cervezas</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group form-float">
+                                                        <div class="form-line">
+                                                            <input type="text" class="form-control" name="licor">
+                                                            <label class="form-label">licor</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <input type="radio" id="rdno_toma" value="No" name="toma" />
+                                                <label for="rdno_toma"> No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
+                            <div class="btn-group" role="group">
+                                <button type="reset" class="btn btn-danger btn-rounded"><i class="fa fa-times"></i> Cancelar</button>
+                                <button type="submit" class="btn btn-primary btn-rounded"><i class="fa fa-save"></i> Guardar</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                    </div>
+                </fieldset>
             </div>
         </div>
     </div>
